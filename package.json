@@ -1,0 +1,36 @@
+{
+  "name": "waves",
+  "version": "1.0.0",
+  "description": "Waves player",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-mayorga/Waves-Player-UI.git"
+  },
+  "keywords": [
+    "Waves",
+    "player"
+  ],
+  "author": "Alberto Mayorga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a-mayorga/Waves-Player-UI/issues"
+  },
+  "homepage": "https://github.com/a-mayorga/Waves-Player-UI#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-ui-router": "^0.4.2",
+    "angular-utils-pagination": "^0.11.1",
+    "animate.css": "^3.5.2",
+    "flexboxgrid": "^6.3.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1"
+  }
+}
