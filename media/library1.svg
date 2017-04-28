@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="608px" height="445px" viewBox="0 0 608 445" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/LibraryOn" fill="#09A4C9">
+            <g id="Group">
+                <path d="M574,403 L603.131008,403 C605.826617,403 608,400.822331 608,398.136041 L608,46.8639588 C608,44.1771035 605.820078,42 603.131008,42 L574,42 L574,403 Z M34,42 L4.86899157,42 C2.17338294,42 0,44.1776685 0,46.8639588 L0,398.136041 C0,400.822896 2.17992178,403 4.86899157,403 L34,403 L34,42 Z" id="Combined-Shape"></path>
+                <path d="M95,22 L58.4064776,22 C55.4133018,22 53,24.4189614 53,27.4029016 L53,417.597098 C53,420.581666 55.4205625,423 58.4064776,423 L95,423 L95,22 Z M513,423 L549.593522,423 C552.586698,423 555,420.581039 555,417.597098 L555,27.4029016 C555,24.4183338 552.579438,22 549.593522,22 L513,22 L513,423 Z" id="Combined-Shape"></path>
+                <rect id="Rectangle" x="114" y="0" width="380" height="445" rx="6"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
