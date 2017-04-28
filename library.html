@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body onload="getCamera()">
+<body>
     <!-- LIBS -->
     <script src="libs/jquery/dist/jquery.min.js" charset="utf-8"></script>
     <script src="libs/angular/angular.min.js" charset="utf-8"></script>
@@ -20,29 +20,11 @@
 
     <!-- APP, CONTROLLERS, SERVICES, DIRECTIVES -->
     <script src="js/angular_app.js" charset="utf-8"></script>
-    <script src="js/design.js" charset="utf-8"></script>
     <script src="js/controllers/mainController.js" charset="utf-8"></script>
     
-
-    <div class="content">
-        
-        <div class="loginFlex">
-       
-        <img src="media/Logo/White.png" id="logoMain">
-        <input type="text" id="userLogin" placeholder="Username">
-        <input type="password" id="passLogin" placeholder="Password">
-        
-        <button class="signInBtn" id="btnSignIn" onclick="logInClic()">Iniciar Sesión</button>
-        
-        <label>¿No tienes una cuenta?</label>
-        <button class="littleButton" onclick="showSignUp()">Regístrate aquí</button>
+    <div class="bottomBar flexedBox">
         
     </div>
-        
-    </div>
-    
-    
-    
     
 </body>
 </html>

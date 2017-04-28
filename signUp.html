@@ -23,19 +23,22 @@
     <script src="js/design.js" charset="utf-8"></script>
     <script src="js/controllers/mainController.js" charset="utf-8"></script>
     
-
+    
     <div class="content">
         
         <div class="loginFlex">
        
-        <img src="media/Logo/White.png" id="logoMain">
-        <input type="text" id="userLogin" placeholder="Username">
-        <input type="password" id="passLogin" placeholder="Password">
-        
-        <button class="signInBtn" id="btnSignIn" onclick="logInClic()">Iniciar Sesión</button>
-        
-        <label>¿No tienes una cuenta?</label>
-        <button class="littleButton" onclick="showSignUp()">Regístrate aquí</button>
+            <h1>Registro</h1>
+
+            <input type="text" id="nameSignUp" placeholder="Nombre">
+            <input type="email" id="emailSignUp" placeholder="Correo@algo.com">
+            <input type="text" id="userSignUp" placeholder="Username">
+            <input type="password" id="passSignUp" placeholder="Password">
+
+            <button class="signInBtn" id="btnSignIn" onclick="signUpClick()">Registrarme</button>
+
+            <label>¿Ya tienes una cuenta?</label>
+            <button class="littleButton" onclick="showSignIn()">Inicia Sesión</button>
         
     </div>
         
