@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="wavesApp" ng-controller="MainCtrl as main">
 <head>
+  <base href="http://localhost/waves/" target="_blank">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Waves</title>
+  <title page-title></title>
   <link rel="stylesheet" href="libs/animate-css/animate.min.css">
   <link rel="stylesheet" href="libs/flexboxgrid/dist/flexboxgrid.min.css">
   <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body onload="getCamera()">
+<body>
+    <ui-view></ui-view>
+
     <!-- LIBS -->
     <script src="libs/jquery/dist/jquery.min.js" charset="utf-8"></script>
     <script src="libs/angular/angular.min.js" charset="utf-8"></script>
@@ -20,29 +23,13 @@
 
     <!-- APP, CONTROLLERS, SERVICES, DIRECTIVES -->
     <script src="js/angular_app.js" charset="utf-8"></script>
-    <script src="js/design.js" charset="utf-8"></script>
     <script src="js/controllers/mainController.js" charset="utf-8"></script>
-    
-
-    <div class="content">
-        
-        <div class="loginFlex">
-       
-        <img src="media/Logo/White.png" id="logoMain">
-        <input type="text" id="userLogin" placeholder="Username">
-        <input type="password" id="passLogin" placeholder="Password">
-        
-        <button class="signInBtn" id="btnSignIn" onclick="logInClic()">Iniciar Sesión</button>
-        
-        <label>¿No tienes una cuenta?</label>
-        <button class="littleButton" onclick="showSignUp()">Regístrate aquí</button>
-        
-    </div>
-        
-    </div>
-    
-    
-    
-    
+    <script src="js/controllers/loginController.js" charset="utf-8"></script>
+    <script src="js/controllers/signUpController.js" charset="utf-8"></script>
+    <script src="js/controllers/navigationController.js" charset="utf-8"></script>
+    <script src="js/controllers/homeController.js" charset="utf-8"></script>
+    <script src="js/services/authService.js" charset="utf-8"></script>
+    <script src="js/directives/pageTitleDirective.js" charset="utf-8"></script>
+    <script src="js/design.js" charset="utf-8"></script>
 </body>
 </html>
