@@ -12,7 +12,8 @@
       'navCtrl',
       'homeCtrl',
       'authSrvc',
-      'pageTitleDir'
+      'pageTitleDir',
+      'playerCtrl',
     ])
     .config(appConfig)
     .run(appRun);
@@ -79,12 +80,25 @@
       }
     }
 
+    var playerState = {
+      name: 'player',
+      url: '/player',
+      controller: 'PlayerCtrl',
+      controllerAs: 'player',
+      templateUrl: 'js/templates/player.html',
+      module: 'public',
+      data: {
+        pageTitle: 'Player'
+      }
+    }
+
     /* Adding states to the StateProvider */
     $stateProvider.state(loginState);
     $stateProvider.state(signUpState);
     $stateProvider.state(appState);
     $stateProvider.state(homeState);
     $stateProvider.state(notFoundState);
+    $stateProvider.state(playerState);
 
     /* Defining redirection state when the route on the address bar doesn't match any state */
     $urlRouterProvider.otherwise('404');
