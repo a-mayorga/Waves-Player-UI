@@ -68,6 +68,18 @@
     //   }
     // }
 
+    var playerState = {
+      name: 'player',
+      url: '/player',
+      controller: 'PlayerCtrl',
+      controllerAs: 'player',
+      templateUrl: 'js/templates/player.html',
+      module: 'private',
+      data: {
+        pageTitle: 'Player'
+      }
+    }
+
     var notFoundState = {
       name: '404',
       url: '/404',
@@ -78,25 +90,13 @@
       }
     }
 
-    var playerState = {
-      name: 'player',
-      url: '/player',
-      controller: 'PlayerCtrl',
-      controllerAs: 'player',
-      templateUrl: 'js/templates/player.html',
-      module: 'public',
-      data: {
-        pageTitle: 'Player'
-      }
-    }
-
     /* Adding states to the StateProvider */
     $stateProvider.state(loginState);
     $stateProvider.state(signUpState);
     // $stateProvider.state(appState);
     // $stateProvider.state(homeState);
-    $stateProvider.state(notFoundState);
     $stateProvider.state(playerState);
+    $stateProvider.state(notFoundState);
 
     /* Defining redirection state when the route on the address bar doesn't match any state */
     $urlRouterProvider.otherwise('404');
@@ -114,12 +114,13 @@
         evt.preventDefault();
         //toastr.error('Debes iniciar sesión primero', 'Error');
         $state.go('login');
+        alert('Debes iniciar sesión primero');
       }
 
       /* Avoiding a logged user from returning to the login form */
       if (toState.name === 'login' && authService.isLoggedIn()) {
         evt.preventDefault();
-        $state.go('app.home');
+        $state.go('player');
       }
     });
   }

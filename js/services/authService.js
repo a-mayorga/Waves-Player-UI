@@ -11,7 +11,7 @@
     .factory('sessionControl', sessionControl)
     .factory('authService', authService);
 
-  authService.$inject = ['$http'];
+  authService.$inject = ['$http', '$state', 'sessionControl'];
 
   function sessionControl() {
     /* Factory to control sessions with session storage (get, set, unset) */
@@ -36,7 +36,7 @@
     }
   }
 
-  function authService($http) {
+  function authService($http, $state, sessionControl) {
     /*
       authService returns three functions:
 
@@ -73,29 +73,30 @@
     /* Executes the $auth dependency login function (provided by Satellizer) with the login form data */
     function login(loginData) {
       return $http({
-              method: 'POST',
-              url: 'http://localhost:51954/api/auth/login',
-              data: JSON.stringify(loginData),
-              headers: {
-                  'Content-type': 'application/json'
-              }
-          })
-          .then(function(response) {
-                  // cacheSession(response.data.id, response.data.name, response.data.email,
-                  //     response.data.username, response.data.status);
-                  // state.go('home');
-              },
-              function(error) {
-                  console.log(error);
-              });
+          method: 'POST',
+          url: 'http://localhost:51954/api/auth/login',
+          data: JSON.stringify(loginData),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            cacheSession(response.data.id, response.data.name, response.data.email,
+              response.data.username, response.data.status);
+            $state.go('player');
+          },
+          function(error) {
+            console.log(error);
+          });
     }
 
     function logout() {
-
+      uncacheSession();
+      $state.go('login');
     }
 
     function isLoggedIn() {
-      // return sessionControl.get('isLogged') !== null;
+      return sessionControl.get('isLogged') !== null;
     }
   }
 
