@@ -1,316 +1,155 @@
-@import url('https://fonts.googleapis.com/css?family=Muli');
-
 * {
   padding: 0;
   margin: 0;
 }
 
-.player{
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 15%;
-	background: #ffffff;
+.player {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 15%;
+  background: #ffffff;
   box-shadow: 0 -2px 10px 1px rgba(0, 0, 0, 0.5);
 }
 
-	.caratula{
-		position: relative;
-		float: left;
-		width: 20%;
-		height: 100%;
-		/*background: yellow;*/
-	}
-
-	.caratula-info{
-		position: relative;
-		float: left;
-		width: 50%;
-		height: 100%;
-		/*background: brown;*/
-	}
-
-  #title{
-    font-size: .7em;
-  }
-
-  #add{
-    text-align: left;
-  }
-
-    .caratula-info  li,a{
-      list-style: none;
-      text-decoration: none;
-    }
-
-    .caratula-info ul{
-      margin-top: 20px;
-    }
-
-	.caratula-img{
-		position: relative;
-		float: left;
-		width: 50%;
-		height: 100%;
-		/*background: green;*/
-	}
-
-		.caratula-img > img{
-			margin-top: 10px;
-			margin-left: 20%;
-			width: 6vw;
-			height: auto;
-		}
-
-	.reproductor{
-		position: relative;
-		float: left;
-		width: 60%;
-		height: 100%;
-	}
-		.reproductor-controles{
-			position: relative;
-			float: left;
-			width: 100%;
-			height: 70%;
-			/*background: green;*/
-			margin-left: 30%;
-		}
-
-		.reproductor-controles img{
-			width: 30px;
-			height: 30px;
-			margin-top: 15px;
-			margin-left: 5px;
-		}
-		#play{
-			width: 30px;
-			height: 30px;
-			margin-top: 15px;
-			margin-left: 10px;
-			margin-right: 10px;
-		}
-		.reproductor-timer{
-			position: relative;
-			float: left;
-			width: 100%;
-			height: 30%;
-		}
-
-		.time{
-			/*margin-top: 5px;*/
-			position: relative;
-			float: left;
-			width: 10%;
-		}
-
-		.timer{
-			position: relative;
-			float: left;
-			width: 80%;
-			height: 100%;
-		}
-
-	.opciones{
-		position: relative;
-		float: left;
-		width: 20%;
-		height: 100%;
-		/*background: yellow;*/
-	}
-
-	#track {
-		width: 90%;
-    height: 2px;
-    position: relative;
-    background-color: #c8c8c8;
-    top: 10px;
-    left: 17px;
-    z-index: 10;
-    cursor: pointer;
-	}
-	#progress {
-	    float: left;
-	    height: 2px;
-	    width: 0%;
-	    background: #232323;
-	    cursor: pointer;
-	}
-	#handler {
-	    position: absolute;
-	    width: 20px;
-	    height: 20px;
-	    background-color: #ffffff;
-	    top: 50%;
-	    left: 0%;
-	    margin-left: -10px;
-	    margin-top: -10px;
-	    border-radius: 50%;
-	    cursor: pointer;
-	    z-index: 5;
-			box-shadow: 1px 5px 20px 1px rgba(0,0,0,0.6);
-	}
-
 .caratula {
-  width: 100%;
-  height: 50%;
-  background-color: red;
-  position: relative;
-  float: left;
-}
-
-.caratula>img {
-  width: 100%;
-  height: 100%;
-}
-
-.bottom {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-.bottom img {
-  width: 50%;
-  opacity: .6;
-}
-
-.contenido p {
-  font-size: 3.5em;
-  text-align: center;
-  font-family: 'Muli', sans-serif;
-}
-
-.sub {
-  color: black;
-  opacity: .5;
-}
-
-.time {
-  width: 100%;
-  height: 20px;
-  position: relative;
-  float: left;
-  margin-bottom: 30px;
-}
-
-.time-long {
-  background: -webkit-linear-gradient(left, #464447, #bc984a);
-  height: 100%;
-  width: 100%;
-}
-
-.time-clock {
-  font-size: .5rem;
-}
-
-#lapsed {
-  text-align: left;
-  display: inline;
-  margin-left: 5%
-}
-
-#toEnd {
-  text-align: right;
-  display: inline;
-  margin-left: 75%
-}
-
-.controles {
-  width: 100%;
-  height: calc(25% - 30px);
-  position: relative;
-  float: left;
-}
-
-.prev {
-  position: relative;
-  float: left;
-  width: 33.3%;
-}
-
-.play {
-  position: relative;
-  float: left;
-  width: 33.3%;
-}
-
-.siguiente {
-  position: relative;
-  float: left;
-  width: 33.3%;
-}
-
-.prev-btn {
-  width: 40%;
-  height: 40%;
-  margin: 20% 0 0 10%;
-}
-
-.next-btn {
-  width: 40%;
-  height: 40%;
-  margin: 20% 0 0 45%;
-}
-
-.play-btn {
-  width: 55%;
-  height: 55%;
-  margin: 10% 0 0 30%;
-}
-
-
-/********PLAYER MIN**************/
-
-.player-min {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  height: 10%;
-  background-color: #f5f5f5;
-}
-
-.caratula-min {
   position: relative;
   float: left;
   width: 20%;
   height: 100%;
+  /*background: yellow;*/
 }
 
-.caratula-min>img {
-  width: 80%;
-  height: 90%;
-  margin-left: 10%;
-  margin-top: 5%;
-}
-
-.titulo-min {
+.caratula-info {
   position: relative;
   float: left;
-  width: 70%;
+  width: 50%;
+  height: 100%;
+  /*background: brown;*/
+}
+
+#title {
+  font-size: .7em;
+}
+
+#add {
+  text-align: left;
+}
+
+.caratula-info li, a {
+  list-style: none;
+  text-decoration: none;
+}
+
+.caratula-info ul {
+  margin-top: 20px;
+}
+
+.caratula-img {
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 100%;
+  /*background: green;*/
+}
+
+.caratula-img>img {
+  margin-top: 10px;
+  margin-left: 20%;
+  width: 6vw;
+  height: auto;
+}
+
+.reproductor {
+  position: relative;
+  float: left;
+  width: 60%;
   height: 100%;
 }
 
-.titulo-min>p {
-  display: inline;
-  font-size: 2.5em;
-  font-family: 'Muli', sans-serif;
-  margin-left: 30px;
-  line-height: 150px;
+.reproductor-controles {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 70%;
+  /*background: green;*/
+  margin-left: 30%;
 }
 
-.mostrar-min {
+.reproductor-controles img {
+  width: 30px;
+  height: 30px;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+
+#play {
+  width: 30px;
+  height: 30px;
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.reproductor-timer {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 30%;
+}
+
+.time {
+  /*margin-top: 5px;*/
   position: relative;
   float: left;
   width: 10%;
+}
+
+.timer {
+  position: relative;
+  float: left;
+  width: 80%;
   height: 100%;
 }
 
-.mostrar-min>img {
-  width: 80%;
+.opciones {
+  position: relative;
+  float: left;
+  width: 20%;
   height: 100%;
-  margin-left: 5%;
-  transform: rotate(180deg);
+  /*background: yellow;*/
+}
+
+#track {
+  width: 90%;
+  height: 2px;
+  position: relative;
+  background-color: #c8c8c8;
+  top: 10px;
+  left: 17px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+#progress {
+  float: left;
+  height: 2px;
+  width: 0%;
+  background: #232323;
+  cursor: pointer;
+}
+
+#handler {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  top: 50%;
+  left: 0%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 1px 5px 20px 1px rgba(0, 0, 0, 0.6);
 }

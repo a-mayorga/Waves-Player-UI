@@ -2,14 +2,6 @@
   <div class="caratula">
     <div class="caratula-img">
       <img id="art" src="media/0111.jpg" alt="">
-<link rel="stylesheet" href="css/player.css">
-
-<div class="contenido">
-    <div class="caratula">
-        <img src="media/0111.jpg" alt="">
-    </div>
-    <div class="time">
-        <div class="time-long"></div>
     </div>
     <div class="caratula-info">
       <ul>
@@ -43,25 +35,6 @@
   <div class="opciones">
 
   </div>
-    <div class="informacion">
-        <p class="titulo">Don't Wanna Know</p>
-        <p class="album sub">V</p>
-        <p class="artista sub">Maroon V</p>
-    </div>
-    <div class="controles">
-        <div class="prev">
-            <img class="prev-btn" src="media/back.svg">
-        </div>
-        <div class="play">
-            <img id="play" class="play-btn" src="media/play-button.svg">
-        </div>
-        <div class="siguiente">
-            <img class="next-btn" src="media/next.svg">
-        </div>
-    </div>
-    <!-- <div class="bottom">
-        <img src="media/downwards-pointer.svg" alt="">
-    </div> -->
 </div>
 
 <script type="text/javascript">
@@ -79,16 +52,13 @@ var current = document.getElementById('current');
 var current_track = 0;
 var song, audio, duration;
 var playing = false;
-
 var songs = [{
   title: 'Don’t Wanna Know',
   artist: 'Maroon 5',
   url: 'http://promomusik.org/uploads/tracks/2040216228_1131911495_441227551.mp3',
   art: 'media/0111.jpg'
 }];
-
 window.addEventListener('load', init(), false);
-
 function init() {
   song = songs[current_track];
   audio = new Audio();
@@ -97,25 +67,19 @@ function init() {
   artist.textContent = song.artist;
   art.src = song.art;
 }
-
-
 audio.addEventListener('timeupdate', updateTrack, false);
-
 audio.addEventListener('loadedmetadata', function () {
   duration = this.duration;
   dur.innerHTML = timeSec(duration.toFixed(0));
 }, false);
-
 window.onmousemove = function (e) {
   e.preventDefault();
   if (holding) seekTrack(e);
 }
-
 window.onmouseup = function (e) {
   holding = false;
   console.log(holding);
 }
-
 track.onmousedown = function (e) {
   holding = true;
   seekTrack(e);
@@ -128,14 +92,12 @@ audio.addEventListener("pause", function () {
   play.src ='media/play-button.svg';
   playing = false;
 }, false);
-
 audio.addEventListener("playing", function () {
   play.src = 'media/pause.svg';
   playing = true;
 }, false);
 next.addEventListener("click", nextTrack, false);
 prev.addEventListener("click", prevTrack, false);
-
 function updateTrack() {
   curtime = audio.currentTime;
   percent = Math.round((curtime * 100) / duration);
@@ -143,7 +105,6 @@ function updateTrack() {
   handler.style.left = percent + '%';
   current.innerHTML = timeSec(curtime.toFixed(0));
 }
-
 function seekTrack(e) {
   event = e || window.event;
   var x = e.pageX - player.offsetLeft - track.offsetLeft;
@@ -155,7 +116,6 @@ function seekTrack(e) {
   audio.play();
   audio.currentTime = (percent * duration) / 100
 }
-
 function nextTrack() {
   current_track++;
   current_track = current_track % (songs.length);
@@ -165,7 +125,6 @@ function nextTrack() {
     updateInfo();
   }
 }
-
 function prevTrack() {
   current_track--;
   current_track = (current_track == -1 ? (songs.length - 1) : current_track);
@@ -175,7 +134,6 @@ function prevTrack() {
     updateInfo();
   }
 }
-
 function updateInfo() {
   title.textContent = song.title;
   artist.textContent = song.artist;
@@ -184,7 +142,6 @@ function updateInfo() {
       audio.play();
   }
 }
-
 function timeSec(time){
   var minutes = Math.floor( time / 60 );
   var seconds = time % 60;

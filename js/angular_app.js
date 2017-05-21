@@ -47,17 +47,6 @@
       }
     }
 
-    var playerState = {
-      name: 'app',
-      url: '/player',
-      controller: 'NavigationCtrl',
-      controllerAs: 'navigation',
-      templateUrl: 'js/templates/player.html',
-      data: {
-        pageTitle: 'Reproductor'
-      }
-    }
-
     // var appState = {
     //   name: 'app',
     //   url: '/app',
@@ -104,7 +93,6 @@
     /* Adding states to the StateProvider */
     $stateProvider.state(loginState);
     $stateProvider.state(signUpState);
-    $stateProvider.state(playerState);
     // $stateProvider.state(appState);
     // $stateProvider.state(homeState);
     $stateProvider.state(notFoundState);
