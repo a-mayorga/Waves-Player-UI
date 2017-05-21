@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Muli');
+
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .player{
@@ -148,3 +150,167 @@
 	    z-index: 5;
 			box-shadow: 1px 5px 20px 1px rgba(0,0,0,0.6);
 	}
+
+.caratula {
+  width: 100%;
+  height: 50%;
+  background-color: red;
+  position: relative;
+  float: left;
+}
+
+.caratula>img {
+  width: 100%;
+  height: 100%;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.bottom img {
+  width: 50%;
+  opacity: .6;
+}
+
+.contenido p {
+  font-size: 3.5em;
+  text-align: center;
+  font-family: 'Muli', sans-serif;
+}
+
+.sub {
+  color: black;
+  opacity: .5;
+}
+
+.time {
+  width: 100%;
+  height: 20px;
+  position: relative;
+  float: left;
+  margin-bottom: 30px;
+}
+
+.time-long {
+  background: -webkit-linear-gradient(left, #464447, #bc984a);
+  height: 100%;
+  width: 100%;
+}
+
+.time-clock {
+  font-size: .5rem;
+}
+
+#lapsed {
+  text-align: left;
+  display: inline;
+  margin-left: 5%
+}
+
+#toEnd {
+  text-align: right;
+  display: inline;
+  margin-left: 75%
+}
+
+.controles {
+  width: 100%;
+  height: calc(25% - 30px);
+  position: relative;
+  float: left;
+}
+
+.prev {
+  position: relative;
+  float: left;
+  width: 33.3%;
+}
+
+.play {
+  position: relative;
+  float: left;
+  width: 33.3%;
+}
+
+.siguiente {
+  position: relative;
+  float: left;
+  width: 33.3%;
+}
+
+.prev-btn {
+  width: 40%;
+  height: 40%;
+  margin: 20% 0 0 10%;
+}
+
+.next-btn {
+  width: 40%;
+  height: 40%;
+  margin: 20% 0 0 45%;
+}
+
+.play-btn {
+  width: 55%;
+  height: 55%;
+  margin: 10% 0 0 30%;
+}
+
+
+/********PLAYER MIN**************/
+
+.player-min {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  background-color: #f5f5f5;
+}
+
+.caratula-min {
+  position: relative;
+  float: left;
+  width: 20%;
+  height: 100%;
+}
+
+.caratula-min>img {
+  width: 80%;
+  height: 90%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.titulo-min {
+  position: relative;
+  float: left;
+  width: 70%;
+  height: 100%;
+}
+
+.titulo-min>p {
+  display: inline;
+  font-size: 2.5em;
+  font-family: 'Muli', sans-serif;
+  margin-left: 30px;
+  line-height: 150px;
+}
+
+.mostrar-min {
+  position: relative;
+  float: left;
+  width: 10%;
+  height: 100%;
+}
+
+.mostrar-min>img {
+  width: 80%;
+  height: 100%;
+  margin-left: 5%;
+  transform: rotate(180deg);
+}

@@ -31,7 +31,6 @@
       templateUrl: 'js/templates/login.html',
       module: 'public',
       data: {
-        bodyClass: 'login',
         pageTitle: 'Iniciar Sesión'
       }
     }
@@ -44,31 +43,41 @@
       templateUrl: 'js/templates/signup.html',
       module: 'public',
       data: {
-        bodyClass: 'login',
         pageTitle: 'Registro'
       }
     }
 
-    var appState = {
+    var playerState = {
       name: 'app',
-      url: '/app',
+      url: '/player',
       controller: 'NavigationCtrl',
       controllerAs: 'navigation',
-      templateUrl: 'js/templates/navigation.html',
-      module: 'private'
-    }
-
-    var homeState = {
-      name: 'app.home',
-      url: '/home',
-      controller: 'HomeCtrl',
-      controllerAs: 'home',
-      templateUrl: 'js/templates/home.html',
-      module: 'private',
+      templateUrl: 'js/templates/player.html',
       data: {
-        pageTitle: 'Inicio'
+        pageTitle: 'Reproductor'
       }
     }
+
+    // var appState = {
+    //   name: 'app',
+    //   url: '/app',
+    //   controller: 'NavigationCtrl',
+    //   controllerAs: 'navigation',
+    //   templateUrl: 'js/templates/navigation.html',
+    //   module: 'private'
+    // }
+    //
+    // var homeState = {
+    //   name: 'app.home',
+    //   url: '/home',
+    //   controller: 'HomeCtrl',
+    //   controllerAs: 'home',
+    //   templateUrl: 'js/templates/home.html',
+    //   module: 'private',
+    //   data: {
+    //     pageTitle: 'Inicio'
+    //   }
+    // }
 
     var notFoundState = {
       name: '404',
@@ -95,8 +104,9 @@
     /* Adding states to the StateProvider */
     $stateProvider.state(loginState);
     $stateProvider.state(signUpState);
-    $stateProvider.state(appState);
-    $stateProvider.state(homeState);
+    $stateProvider.state(playerState);
+    // $stateProvider.state(appState);
+    // $stateProvider.state(homeState);
     $stateProvider.state(notFoundState);
     $stateProvider.state(playerState);
 

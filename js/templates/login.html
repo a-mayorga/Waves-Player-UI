@@ -1,9 +1,11 @@
 <div class="content">
   <div class="loginFlex">
     <img src="media/Logo/White.png" id="logoMain">
-    <input type="text" id="userLogin" placeholder="Username">
-    <input type="password" id="passLogin" placeholder="Password">
-    <button class="signInBtn" id="btnSignIn" onclick="logInClic()">Iniciar Sesión</button>
+    <form class="loginForm" name="loginForm" id="loginForm" ng-submit="login.login()">
+      <input type="text" id="userLogin" placeholder="Username" ng-model="login.loginData.username" required>
+      <input type="password" id="passLogin" placeholder="Password" ng-model="login.loginData.password" required>
+      <button type="submit" class="signInBtn" id="btnSignIn">Iniciar Sesión</button>
+    </form>
     <label>¿No tienes una cuenta?</label>
     <button class="littleButton" ui-sref="signup">Regístrate aquí</button>
   </div>
