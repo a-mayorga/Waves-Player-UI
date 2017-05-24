@@ -148,3 +148,16 @@
 	    z-index: 5;
 			box-shadow: 1px 5px 20px 1px rgba(0,0,0,0.6);
 	}
+
+  .menu{
+    position: absolute;
+    float: left;
+    min-width: 200px;
+    width: 15%;
+    padding: 15px;
+    height: 85%;
+    left: 0;
+    top: 0;
+    background: #c8c8c8;
+    /*border-right: 1px solid rgba(0, 0, 0, 0.4);*/
+  }

@@ -1,3 +1,11 @@
+<div class="menu">
+  <ul>
+    <li>Canciones</li>
+    <li>Artistas</li>
+    <li>Álbumes</li>
+    <li>Canciones</li>
+  </ul>
+</div>
 <div class="player">
   <div class="caratula">
     <div class="caratula-img">
@@ -76,7 +84,7 @@ audio.addEventListener('timeupdate', updateTrack, false);
 
 audio.addEventListener('loadedmetadata', function () {
   duration = this.duration;
-  dur.innerHTML = timeSec(duration.toFixed(0));
+  dur.textContent = timeSec(duration.toFixed(0));
 }, false);
 
 window.onmousemove = function (e) {
@@ -94,9 +102,11 @@ track.onmousedown = function (e) {
   seekTrack(e);
   console.log(holding);
 }
+
 play.onclick = function () {
   playing ? audio.pause() : audio.play();
 }
+
 audio.addEventListener("pause", function () {
   play.src ='media/play-button.svg';
   playing = false;
@@ -106,6 +116,7 @@ audio.addEventListener("playing", function () {
   play.src = 'media/pause.svg';
   playing = true;
 }, false);
+
 next.addEventListener("click", nextTrack, false);
 prev.addEventListener("click", prevTrack, false);
 
@@ -114,7 +125,7 @@ function updateTrack() {
   percent = Math.round((curtime * 100) / duration);
   progress.style.width = percent + '%';
   handler.style.left = percent + '%';
-  current.innerHTML = timeSec(curtime.toFixed(0));
+  current.textContent = timeSec(curtime.toFixed(0));
 }
 
 function seekTrack(e) {
