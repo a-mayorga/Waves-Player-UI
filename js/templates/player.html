@@ -60,16 +60,13 @@ var current = document.getElementById('current');
 var current_track = 0;
 var song, audio, duration;
 var playing = false;
-
 var songs = [{
   title: 'Don’t Wanna Know',
   artist: 'Maroon 5',
-  url: 'http://promomusik.org/uploads/tracks/2040216228_1131911495_441227551.mp3',
+  url: 'http://localhost/waves/media/songs/0000222.mp3',
   art: 'media/0111.jpg'
 }];
-
 window.addEventListener('load', init(), false);
-
 function init() {
   song = songs[current_track];
   audio = new Audio();
@@ -78,25 +75,19 @@ function init() {
   artist.textContent = song.artist;
   art.src = song.art;
 }
-
-
 audio.addEventListener('timeupdate', updateTrack, false);
-
 audio.addEventListener('loadedmetadata', function () {
   duration = this.duration;
   dur.textContent = timeSec(duration.toFixed(0));
 }, false);
-
 window.onmousemove = function (e) {
   e.preventDefault();
   if (holding) seekTrack(e);
 }
-
 window.onmouseup = function (e) {
   holding = false;
   console.log(holding);
 }
-
 track.onmousedown = function (e) {
   holding = true;
   seekTrack(e);
@@ -111,7 +102,6 @@ audio.addEventListener("pause", function () {
   play.src ='media/play-button.svg';
   playing = false;
 }, false);
-
 audio.addEventListener("playing", function () {
   play.src = 'media/pause.svg';
   playing = true;
@@ -119,7 +109,6 @@ audio.addEventListener("playing", function () {
 
 next.addEventListener("click", nextTrack, false);
 prev.addEventListener("click", prevTrack, false);
-
 function updateTrack() {
   curtime = audio.currentTime;
   percent = Math.round((curtime * 100) / duration);
@@ -127,7 +116,6 @@ function updateTrack() {
   handler.style.left = percent + '%';
   current.textContent = timeSec(curtime.toFixed(0));
 }
-
 function seekTrack(e) {
   event = e || window.event;
   var x = e.pageX - player.offsetLeft - track.offsetLeft;
@@ -139,7 +127,6 @@ function seekTrack(e) {
   audio.play();
   audio.currentTime = (percent * duration) / 100
 }
-
 function nextTrack() {
   current_track++;
   current_track = current_track % (songs.length);
@@ -149,7 +136,6 @@ function nextTrack() {
     updateInfo();
   }
 }
-
 function prevTrack() {
   current_track--;
   current_track = (current_track == -1 ? (songs.length - 1) : current_track);
@@ -159,7 +145,6 @@ function prevTrack() {
     updateInfo();
   }
 }
-
 function updateInfo() {
   title.textContent = song.title;
   artist.textContent = song.artist;
@@ -168,7 +153,6 @@ function updateInfo() {
       audio.play();
   }
 }
-
 function timeSec(time){
   var minutes = Math.floor( time / 60 );
   var seconds = time % 60;

@@ -3,13 +3,15 @@
     'use strict';
 
     angular
-        .module('mainCtrl', [])
+        .module('mainCtrl', [
+          'authSrvc'
+        ])
         .controller('MainCtrl', mainController);
 
-    mainController.$inject = [];
+    mainController.$inject = ['authService'];
 
     function mainController() {
-        var vm = this;
+        var vm = this;        
     }
 
 })();

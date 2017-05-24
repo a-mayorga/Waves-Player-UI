@@ -3,13 +3,21 @@
   'use strict';
 
   angular
-    .module('loginCtrl', [])
+    .module('loginCtrl', [
+      'authSrvc'
+    ])
     .controller('LoginCtrl', loginController);
 
-  loginController.$inject = [];
+  loginController.$inject = ['authService'];
 
-  function loginController() {
+  function loginController(authService) {
     var vm = this;
+    vm.loginData = {};
+    vm.login = login;
+
+    function login(){
+      authService.login(vm.loginData);
+    }
   }
 
 })();

@@ -11,10 +11,10 @@
     .factory('sessionControl', sessionControl)
     .factory('authService', authService);
 
-  authService.$inject = [];
+  authService.$inject = ['$http', '$state', 'sessionControl'];
 
   function sessionControl() {
-    /* Factory to control sessions with local storage (get, set, unset) */
+    /* Factory to control sessions with session storage (get, set, unset) */
     var sessionService = {
       get: get,
       set: set,
@@ -36,7 +36,7 @@
     }
   }
 
-  function authService() {
+  function authService($http, $state, sessionControl) {
     /*
       authService returns three functions:
 
@@ -52,31 +52,51 @@
 
     return authService;
 
-    function cacheSession(username, name, group) {
+    function cacheSession(id, name, email, username, status) {
       sessionControl.set('isLogged', true);
-      sessionControl.set('username', username);
+      sessionControl.set('id', id);
       sessionControl.set('name', name);
-      sessionControl.set('group', group);
+      sessionControl.set('email', email)
+      sessionControl.set('username', username);
+      sessionControl.set('status', status);
     }
 
     function uncacheSession() {
       sessionControl.unset('isLogged');
-      sessionControl.unset('username');
+      sessionControl.unset('id');
       sessionControl.unset('name');
-      sessionControl.unset('group');
+      sessionControl.unset('email');
+      sessionControl.unset('username');
+      sessionControl.unset('status');
     }
 
     /* Executes the $auth dependency login function (provided by Satellizer) with the login form data */
-    function login() {
-
+    function login(loginData) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:51954/api/auth/login',
+          data: JSON.stringify(loginData),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            cacheSession(response.data.id, response.data.name, response.data.email,
+              response.data.username, response.data.status);
+            $state.go('player');
+          },
+          function(error) {
+            console.log(error);
+          });
     }
 
     function logout() {
-
+      uncacheSession();
+      $state.go('login');
     }
 
     function isLoggedIn() {
-
+      return sessionControl.get('isLogged') !== null;
     }
   }
 

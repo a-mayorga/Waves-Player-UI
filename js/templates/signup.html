@@ -1,11 +1,13 @@
 <div class="content">
   <div class="loginFlex">
     <h1>Registro</h1>
-    <input type="text" id="nameSignUp" placeholder="Nombre">
-    <input type="email" id="emailSignUp" placeholder="Correo@algo.com">
-    <input type="text" id="userSignUp" placeholder="Username">
-    <input type="password" id="passSignUp" placeholder="Password">
-    <button class="signInBtn" id="btnSignIn" onclick="signUpClick()">Registrarme</button>
+    <form name="signUpForm" id="signUpForm" ng-submit="signup.signUp()">
+      <input type="text" id="nameSignUp" placeholder="Nombre" ng-model="signup.signUpData.name" required>
+      <input type="email" id="emailSignUp" placeholder="Correo@algo.com" ng-model="signup.signUpData.email" required>
+      <input type="text" id="userSignUp" placeholder="Username" ng-model="signup.signUpData.username" required>
+      <input type="password" id="passSignUp" placeholder="Password" ng-model="signup.signUpData.password" required>
+      <button type="submit" class="signInBtn" id="btnSignIn">Registrarme</button>
+    </form>
     <label>¿Ya tienes una cuenta?</label>
     <button class="littleButton" ui-sref="login">Inicia Sesión</button>
   </div>
