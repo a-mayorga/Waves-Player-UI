@@ -225,7 +225,7 @@ video {
     padding-left: 5px;
     padding-right: 5px;
     box-sizing: border-box;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .userInfo #userName {
@@ -261,7 +261,7 @@ h1.menuCategory {
     position: relative;
     padding-bottom: 5px;
     margin-bottom: 10px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 #sideBarMenu ul {
@@ -288,9 +288,8 @@ h1.menuCategory {
 /*  PLAYER  */
 #player {
     float: left;
-    margin: auto;
-    bottom: 20px;
-    position: absolute;
+    margin-top: 20px;
+    position: relative;
 }
 
 #player #art {
