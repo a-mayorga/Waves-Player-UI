@@ -48,6 +48,7 @@
                 })
                 .then(function(response) {
                         console.log(response);
+                        alert(response.data);
                     },
                     function(error) {
                         console.log(error);

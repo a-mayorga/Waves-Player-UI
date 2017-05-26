@@ -17,7 +17,7 @@
 
     function signUp(){
       vm.signUpData.status = 1;
-      userService.createUser(vm.signUpData);
+      userService.createUser(vm.signUpData);      
       vm.signUpData = {};
     }
   }
