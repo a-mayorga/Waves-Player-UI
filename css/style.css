@@ -203,6 +203,8 @@ video {
 
 
 
+
+
 /* SideBar */
 .sideBar {
     width: 16%;
@@ -211,6 +213,84 @@ video {
     min-width: 200px;
     max-width: 250px;
     background: rgba(240, 240, 240, 1);
+}
+
+/*  USERINFO  */
+.userInfo {
+    background: rgba(0,0,0,.15);
+    width: 100%;
+    float: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.userInfo #userName {
+    font-size: 16px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.userInfo #userNickname {
+    font-size: 14px;
+    font-weight: 300;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/*  SIDEBAR MENU  */
+#sideBarMenu {
+    width: 90%;
+    margin-left: 5%;
+    float: left;
+}
+
+h1.menuCategory {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    border-bottom: 2px solid black;
+    float: left;
+    width: 100%;
+    position: relative;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+#sideBarMenu ul {
+    margin-bottom: 10px;
+}
+
+#sideBarMenu ul li {
+    list-style: none;
+    margin-bottom: 5px;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 95%;
+    margin-left: 5%;
+}
+
+#sideBarMenu ul li img {
+    max-width: 15px;
+    max-height: 15px;
+    margin-right: 10px;
+}
+
+/*  PLAYER  */
+#player {
+    float: left;
+    margin: auto;
+    bottom: 20px;
+    position: absolute;
 }
 
 #player #art {
