@@ -74,7 +74,7 @@
       controller: 'PlayerCtrl',
       controllerAs: 'player',
       templateUrl: 'js/templates/player.html',
-      module: 'private',
+      module: 'public',
       data: {
         pageTitle: 'Player'
       }
