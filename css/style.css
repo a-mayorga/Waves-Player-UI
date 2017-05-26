@@ -387,3 +387,7 @@ h1.menuCategory {
     margin-top: -8px;
     transition: .5;
 }
+
+.player-content{
+  padding-left: 18%;
+}

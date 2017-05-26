@@ -9,11 +9,10 @@
       'mainCtrl',
       'loginCtrl',
       'signUpCtrl',
-      'navCtrl',
-      'homeCtrl',
-      'authSrvc',
-      'pageTitleDir',
       'playerCtrl',
+      'artistsCtrl',
+      'authSrvc',
+      'pageTitleDir'
     ])
     .config(appConfig)
     .run(appRun);
@@ -47,36 +46,27 @@
       }
     }
 
-    // var appState = {
-    //   name: 'app',
-    //   url: '/app',
-    //   controller: 'NavigationCtrl',
-    //   controllerAs: 'navigation',
-    //   templateUrl: 'js/templates/navigation.html',
-    //   module: 'private'
-    // }
-    //
-    // var homeState = {
-    //   name: 'app.home',
-    //   url: '/home',
-    //   controller: 'HomeCtrl',
-    //   controllerAs: 'home',
-    //   templateUrl: 'js/templates/home.html',
-    //   module: 'private',
-    //   data: {
-    //     pageTitle: 'Inicio'
-    //   }
-    // }
-
     var playerState = {
       name: 'player',
       url: '/player',
       controller: 'PlayerCtrl',
       controllerAs: 'player',
       templateUrl: 'js/templates/player.html',
-      module: 'public',
+      module: 'private',
       data: {
-        pageTitle: 'Player'
+        pageTitle: 'Inicio'
+      }
+    }
+
+    var artistsState = {
+      name: 'player.artists',
+      url: '/artists',
+      controller: 'ArtistsCtrl',
+      controllerAs: 'artists',
+      templateUrl: 'js/templates/artists.html',
+      module: 'private',
+      data: {
+        pageTitle: 'Artistas'
       }
     }
 
@@ -93,9 +83,8 @@
     /* Adding states to the StateProvider */
     $stateProvider.state(loginState);
     $stateProvider.state(signUpState);
-    // $stateProvider.state(appState);
-    // $stateProvider.state(homeState);
     $stateProvider.state(playerState);
+    $stateProvider.state(artistsState);
     $stateProvider.state(notFoundState);
 
     /* Defining redirection state when the route on the address bar doesn't match any state */

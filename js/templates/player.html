@@ -40,14 +40,14 @@
 -->
 <div class="sideBar">
     <div class="userInfo">
-        <h1 id="userName">Nombre</h1>
-        <p id="userNickname">@Hola</p>
+        <h1 id="userName">{{ player.userData.name }}</h1>
+        <p id="userNickname">@{{ player.userData.username }}</p>
     </div>
 
     <div id="sideBarMenu">
         <h1 class="menuCategory">Waves</h1>
         <ul>
-            <li><img src="media/artists.svg">Artistas</li>
+            <li ui-sref="player.artists"><img src="media/artists.svg">Artistas</li>
             <li><img src="media/albums.svg">Álbums</li>
             <li><img src="media/songs.svg">Canciones</li>
             <li><img src="media/genres.svg">Géneros</li>
@@ -60,7 +60,7 @@
             <li><img src="media/genres.svg">Géneros</li>
         </ul>
     </div>
-    
+
     <div id="player">
         <img id="art" src="media/0111.jpg" alt="">
         <div id="track">
@@ -81,15 +81,9 @@
 
 </div>
 
-
-
-
-
-
-
-
-
-
+<div class="player-content">
+  <ui-view></ui-view>
+</div>
 
 <script type="text/javascript">
 var holding = false;
