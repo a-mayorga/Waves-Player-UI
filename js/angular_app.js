@@ -79,7 +79,7 @@
       controller: 'AlbumsCtrl',
       controllerAs: 'albums',
       templateUrl: 'js/templates/albums.html',
-      module: 'private',
+      module: 'public',
       data: {
         pageTitle: 'Álbums'
       }
@@ -91,7 +91,7 @@
       controller: 'SongsCtrl',
       controllerAs: 'songs',
       templateUrl: 'js/templates/songs.html',
-      module: 'private',
+      module: 'public',
       data: {
         pageTitle: 'Canciones'
       }
@@ -103,7 +103,7 @@
       controller: 'GenresCtrl',
       controllerAs: 'genres',
       templateUrl: 'js/templates/genres.html',
-      module: 'private',
+      module: 'public',
       data: {
         pageTitle: 'Géneros'
       }
