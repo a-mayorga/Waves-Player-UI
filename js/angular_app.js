@@ -11,6 +11,9 @@
       'signUpCtrl',
       'playerCtrl',
       'artistsCtrl',
+      'albumsCtrl',
+      'songsCtrl',
+      'genresCtrl',
       'authSrvc',
       'pageTitleDir'
     ])
@@ -70,6 +73,42 @@
       }
     }
 
+    var albumsState = {
+      name: 'player.albums',
+      url: '/albums',
+      controller: 'AlbumsCtrl',
+      controllerAs: 'albums',
+      templateUrl: 'js/templates/albums.html',
+      module: 'private',
+      data: {
+        pageTitle: 'Álbums'
+      }
+    }
+
+    var songsState = {
+      name: 'player.songs',
+      url: '/songs',
+      controller: 'SongsCtrl',
+      controllerAs: 'songs',
+      templateUrl: 'js/templates/songs.html',
+      module: 'private',
+      data: {
+        pageTitle: 'Canciones'
+      }
+    }
+
+    var genresState = {
+      name: 'player.genres',
+      url: '/genres',
+      controller: 'GenresCtrl',
+      controllerAs: 'genres',
+      templateUrl: 'js/templates/genres.html',
+      module: 'private',
+      data: {
+        pageTitle: 'Géneros'
+      }
+    }
+
     var notFoundState = {
       name: '404',
       url: '/404',
@@ -85,6 +124,9 @@
     $stateProvider.state(signUpState);
     $stateProvider.state(playerState);
     $stateProvider.state(artistsState);
+    $stateProvider.state(albumsState);
+    $stateProvider.state(songsState);
+    $stateProvider.state(genresState);
     $stateProvider.state(notFoundState);
 
     /* Defining redirection state when the route on the address bar doesn't match any state */
