@@ -55,7 +55,7 @@
       controller: 'PlayerCtrl',
       controllerAs: 'player',
       templateUrl: 'js/templates/player.html',
-      module: 'private',
+      module: 'public',
       data: {
         pageTitle: 'Inicio'
       }
@@ -67,7 +67,7 @@
       controller: 'ArtistsCtrl',
       controllerAs: 'artists',
       templateUrl: 'js/templates/artists.html',
-      module: 'private',
+      module: 'public',
       data: {
         pageTitle: 'Artistas'
       }
