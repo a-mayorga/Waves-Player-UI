@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-<div class="menu">
-  <ul>
-    <li>Canciones</li>
-    <li>Artistas</li>
-    <li>Álbumes</li>
-    <li>Canciones</li>
-  </ul>
-</div>
-=======
+
 <!--
->>>>>>> master
 <div class="player">
   <div class="caratula">
     <div class="caratula-img">
@@ -45,19 +35,16 @@
     </div>
   </div>
   <div class="opciones">
-
   </div>
 </div>
 -->
-
-
 <div class="sideBar">
     <div class="userInfo">
-        
+
     </div>
-   
+
     <div id="sideBarMenu">
-        
+
     </div>
     <div id="player">
         <img id="art" src="media/0111.jpg" alt="">
@@ -76,7 +63,7 @@
           <img id="next" src="media/next.svg">
     </div>
     </div>
-    
+
 </div>
 
 
@@ -104,12 +91,15 @@ var current = document.getElementById('current');
 var current_track = 0;
 var song, audio, duration;
 var playing = false;
+
 var songs = [{
   title: 'Don’t Wanna Know',
   artist: 'Maroon 5',
   url: 'http://localhost/waves/media/songs/0000222.mp3',
   art: 'media/0111.jpg'
 }];
+
+
 window.addEventListener('load', init(), false);
 function init() {
   song = songs[current_track];
@@ -119,11 +109,13 @@ function init() {
   artist.textContent = song.artist;
   art.src = song.art;
 }
+
 audio.addEventListener('timeupdate', updateTrack, false);
 audio.addEventListener('loadedmetadata', function () {
   duration = this.duration;
   dur.textContent = timeSec(duration.toFixed(0));
 }, false);
+
 window.onmousemove = function (e) {
   e.preventDefault();
   if (holding) seekTrack(e);
@@ -171,6 +163,7 @@ function seekTrack(e) {
   audio.play();
   audio.currentTime = (percent * duration) / 100
 }
+
 function nextTrack() {
   current_track++;
   current_track = current_track % (songs.length);
@@ -180,6 +173,7 @@ function nextTrack() {
     updateInfo();
   }
 }
+
 function prevTrack() {
   current_track--;
   current_track = (current_track == -1 ? (songs.length - 1) : current_track);
@@ -197,6 +191,7 @@ function updateInfo() {
       audio.play();
   }
 }
+
 function timeSec(time){
   var minutes = Math.floor( time / 60 );
   var seconds = time % 60;
