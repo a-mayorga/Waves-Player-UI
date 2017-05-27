@@ -3,13 +3,23 @@
     'use strict';
 
     angular
-        .module('artistsCtrl', [])
+        .module('artistsCtrl', [
+          'artistsSrvc'
+        ])
         .controller('ArtistsCtrl', artistsController);
 
-    artistsController.$inject = [];
+    artistsController.$inject = ['artistsService'];
 
-    function artistsController() {
+    function artistsController(artistsService) {
         var vm = this;
+        vm.artists = {};
+        getArtists();
+
+        function getArtists() {
+            artistsService.getArtists().then(function(data) {
+                vm.artists = data;
+            });
+        }
     }
 
 })();

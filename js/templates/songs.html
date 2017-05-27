@@ -2,28 +2,12 @@
     <h1>Waves – Canciones</h1>
 
     <div class="newInsideContent">
-        <div class="song">
-           <img src="media/albums/1.jpg">
-           <p class="songName">Canción</p>
-           <p class="songArtist">Artista</p>
-           <p class="songAlbum">Album</p>
-           <p class="songGenre">Género</p>
-        </div>
-
-        <div class="song">
-           <img src="media/albums/1.jpg">
-           <p class="songName">Canción</p>
-           <p class="songArtist">Artista</p>
-           <p class="songAlbum">Album</p>
-           <p class="songGenre">Género</p>
-        </div>
-
-        <div class="song">
-           <img src="media/albums/1.jpg">
-           <p class="songName">Canción</p>
-           <p class="songArtist">Artista</p>
-           <p class="songAlbum">Album</p>
-           <p class="songGenre">Género</p>
-        </div>
+        <div class="song" ng-repeat="song in songs.songs">
+           <img src="media/albums/{{ song.album }}.jpg">
+           <p class="songName">{{ song.name }}</p>
+           <p class="songArtist">{{ song.artist }}</p>
+           <p class="songAlbum">{{ song.album }}</p>
+           <p class="songGenre">{{ song.genre }}</p>
+        </div>        
     </div>
 </div>

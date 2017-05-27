@@ -3,13 +3,23 @@
     'use strict';
 
     angular
-        .module('genresCtrl', [])
+        .module('genresCtrl', [
+          'genresSrvc'
+        ])
         .controller('GenresCtrl', genresController);
 
-    genresController.$inject = [];
+    genresController.$inject = ['genresService'];
 
-    function genresController() {
+    function genresController(genresService) {
         var vm = this;
+        vm.genres = {};
+        getGenres();
+
+        function getGenres() {
+            genresService.getGenres().then(function(data) {
+                vm.genres = data;
+            });
+        }
     }
 
 })();

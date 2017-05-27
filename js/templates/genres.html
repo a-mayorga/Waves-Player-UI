@@ -2,9 +2,9 @@
     <h1>Waves – Géneros</h1>
 
     <div class="newInsideContent">
-        <div class="album">
+        <div class="album" ng-repeat="genre in genres.genres">
            <img src="media/genres/pop.jpg" class="albumImg">
-           <p>Título</p>
+           <p>{{ genre.name }}</p>
         </div>
     </div>
 </div>

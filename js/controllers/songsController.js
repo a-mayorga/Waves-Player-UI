@@ -3,13 +3,24 @@
     'use strict';
 
     angular
-        .module('songsCtrl', [])
+        .module('songsCtrl', [
+          'songsSrvc'
+        ])
         .controller('SongsCtrl', songsController);
 
-    songsController.$inject = [];
+    songsController.$inject = ['songsService'];
 
-    function songsController() {
+    function songsController(songsService) {
         var vm = this;
+        vm.songs = {};
+
+        getSongs();
+
+        function getSongs() {
+            songsService.getSongs().then(function(data) {
+                vm.songs = data;
+            });
+        }
     }
 
 })();

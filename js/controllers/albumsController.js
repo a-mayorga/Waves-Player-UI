@@ -3,13 +3,24 @@
     'use strict';
 
     angular
-        .module('albumsCtrl', [])
+        .module('albumsCtrl', [
+          'albumsSrvc'
+        ])
         .controller('AlbumsCtrl', albumsController);
 
-    albumsController.$inject = [];
+    albumsController.$inject = ['albumsService'];
 
-    function albumsController() {
+    function albumsController(albumsService) {
         var vm = this;
+        vm.albums = {};
+
+        getAlbums();
+
+        function getAlbums() {
+            albumsService.getAlbums().then(function(data) {
+                vm.albums = data;
+            });
+        }
     }
 
 })();

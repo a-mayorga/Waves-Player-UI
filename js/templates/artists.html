@@ -2,14 +2,9 @@
     <h1>Waves – Artistas</h1>
 
     <div class="newInsideContent">
-        <div class="artist">
-           <img src="media/artists/adele.jpg" class="artistImg">
-           <p>Nombre</p>
+        <div class="artist" ng-repeat="artist in artists.artists">
+           <img src="media/artists/{{ artist.id }}.jpg" class="artistImg">
+           <p>{{ artist.name }}</p>
         </div>
-
-
     </div>
-
-
-
 </div>

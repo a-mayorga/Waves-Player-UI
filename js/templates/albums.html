@@ -2,9 +2,9 @@
   <h1>Waves – Albums</h1>
 
   <div class="newInsideContent">
-    <div class="album">
-      <img src="media/albums/1.jpg" class="albumImg">
-      <p>Título</p>
+    <div class="album" ng-repeat="album in albums.albums">
+      <img src="media/albums/{{ album.id }}.jpg" class="albumImg">
+      <p>{{ album.title }}</p>
     </div>
   </div>
 </div>
