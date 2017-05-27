@@ -22,4 +22,38 @@
 
   }
 
+  function getDataSong(songID){
+    return $http({
+        method: 'POST',
+        url: 'http://localhost:51954/api/player/songs',
+        data: JSON.stringify(songID),
+        headers: {
+          'Content-type': 'application/json'
+        }
+      })
+      .then(function(response) {
+          $state.go('player');
+        },
+        function(error) {
+          console.log(error);
+        });
+  }
+
+  function getDataPlayList(songID) {
+    return $http({
+        method: 'POST',
+        url: 'http://localhost:51954/api/player/playList',
+        data: JSON.stringify(songID),
+        headers: {
+          'Content-type': 'application/json'
+        }
+      })
+      .then(function(response) {
+          $state.go('player');
+        },
+        function(error) {
+          console.log(error);
+        });
+  } 
+
 })();
