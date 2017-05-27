@@ -213,6 +213,9 @@ video {
     min-width: 200px;
     max-width: 250px;
     background: rgba(240, 240, 240, 1);
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding-bottom: 20px;
 }
 
 /*  USERINFO  */
