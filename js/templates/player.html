@@ -22,7 +22,7 @@
     </div>
 
     <div id="player">
-        <img id="art" src="media/0111.jpg" alt="">
+        <img id="art" src="media/no-cover.png">
         <div id="track">
               <div id="progress"></div>
               <div id="handler"></div>
@@ -67,7 +67,7 @@ var songs = [{
   title: 'Don’t Wanna Know',
   artist: 'Maroon 5',
   url: 'http://localhost/waves/media/songs/0000222.mp3',
-  art: 'media/0111.jpg'
+  art: 'media/albums/0111.jpg'
 }];
 
 
@@ -78,7 +78,14 @@ function init() {
   audio.src = song.url;
   title.textContent = song.title;
   artist.textContent = song.artist;
-  art.src = song.art;
+
+  if(typeof song.art == "undefined"){
+    art.src = 'media/no-cover.png';
+  }
+  else{
+    art.src = song.art;
+  }
+
 }
 
 audio.addEventListener('timeupdate', updateTrack, false);
