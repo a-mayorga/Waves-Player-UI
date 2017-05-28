@@ -3,7 +3,7 @@
 
     <div class="newInsideContent">
         <div class="song" dir-paginate="song in songs.songs | itemsPerPage: 18">
-           <img src="media/albums/{{ song.album }}.jpg">
+           <img src="media/albums/{{ song.id }}.jpg">
            <p class="songName">{{ song.name }}</p>
            <p class="songArtist">{{ song.artist }}</p>
            <p class="songAlbum">{{ song.album }}</p>
