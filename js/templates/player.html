@@ -48,6 +48,7 @@
 </div>
 
 <script type="text/javascript">
+
 var holding = false;
 var track = document.getElementById('track');
 var progress = document.getElementById('progress');
@@ -72,6 +73,10 @@ var songs = [{
 
 
 window.addEventListener('load', init(), false);
+window.addEventListener('load',function(){
+  console.log(player.songData);
+},false)
+
 function init() {
   song = songs[current_track];
   audio = new Audio();
@@ -84,7 +89,7 @@ function init() {
 audio.addEventListener('timeupdate', updateTrack, false);
 audio.addEventListener('loadedmetadata', function () {
   duration = this.duration;
-  dur.textContent = timeSec(duration.toFixed(0));
+  // dur.textContent = timeSec(duration.toFixed(0));
 }, false);
 
 window.onmousemove = function (e) {
@@ -121,7 +126,7 @@ function updateTrack() {
   percent = Math.round((curtime * 100) / duration);
   progress.style.width = percent + '%';
   handler.style.left = percent + '%';
-  current.textContent = timeSec(curtime.toFixed(0));
+  // current.textContent = timeSec(curtime.toFixed(0));
 }
 function seekTrack(e) {
   event = e || window.event;

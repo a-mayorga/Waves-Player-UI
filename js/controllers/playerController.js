@@ -4,13 +4,14 @@
 
   angular
     .module('playerCtrl', [
-      'authSrvc'
+      'authSrvc',
+      'playerSrvc',
     ])
     .controller('PlayerCtrl', playerController);
 
-  playerController.$inject = ['sessionControl'];
+  playerController.$inject = ['sessionControl','playerService'];
 
-  function playerController(sessionControl) {
+  function playerController(sessionControl,playerService) {
     var vm = this;
     vm.userData = {
       id: sessionControl.get('id'),
@@ -20,40 +21,12 @@
       status: sessionControl.get('status')
     };
 
-  }
+    getDataSong();
 
-  function getDataSong(songID){
-    return $http({
-        method: 'POST',
-        url: 'http://localhost:51954/api/player/songs',
-        data: JSON.stringify(songID),
-        headers: {
-          'Content-type': 'application/json'
-        }
-      })
-      .then(function(response) {
-          $state.go('player');
-        },
-        function(error) {
-          console.log(error);
+    function getDataSong() {
+        playerService.getDataSongs().then(function(data) {
+            vm.songData = data;
         });
+    }
   }
-
-  function getDataPlayList(songID) {
-    return $http({
-        method: 'POST',
-        url: 'http://localhost:51954/api/player/playList',
-        data: JSON.stringify(songID),
-        headers: {
-          'Content-type': 'application/json'
-        }
-      })
-      .then(function(response) {
-          $state.go('player');
-        },
-        function(error) {
-          console.log(error);
-        });
-  } 
-
 })();
