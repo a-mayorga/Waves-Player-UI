@@ -8,11 +8,12 @@
         ])
         .controller('AlbumsCtrl', albumsController);
 
-    albumsController.$inject = ['albumsService'];
+    albumsController.$inject = ['$anchorScroll', 'albumsService'];
 
-    function albumsController(albumsService) {
+    function albumsController($anchorScroll, albumsService) {
         var vm = this;
         vm.albums = {};
+        vm.goToTop = $anchorScroll;
 
         getAlbums();
 

@@ -8,11 +8,12 @@
         ])
         .controller('SongsCtrl', songsController);
 
-    songsController.$inject = ['songsService'];
+    songsController.$inject = ['$anchorScroll', 'songsService'];
 
-    function songsController(songsService) {
+    function songsController($anchorScroll, songsService) {
         var vm = this;
         vm.songs = {};
+        vm.goToTop = $anchorScroll;
 
         getSongs();
 

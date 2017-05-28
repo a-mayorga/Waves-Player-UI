@@ -2,9 +2,11 @@
   <h1>Waves – Albums</h1>
 
   <div class="newInsideContent">
-    <div class="album" ng-repeat="album in albums.albums">
+    <div class="album" dir-paginate="album in albums.albums | itemsPerPage: 15">
       <img src="media/albums/{{ album.id }}.jpg" class="albumImg">
       <p>{{ album.title }}</p>
     </div>
   </div>
+  <br><br>
+  <dir-pagination-controls on-page-change="albums.goToTop()"></dir-pagination-controls>
 </div>

@@ -2,12 +2,14 @@
     <h1>Waves – Canciones</h1>
 
     <div class="newInsideContent">
-        <div class="song" ng-repeat="song in songs.songs">
+        <div class="song" dir-paginate="song in songs.songs | itemsPerPage: 18">
            <img src="media/albums/{{ song.album }}.jpg">
            <p class="songName">{{ song.name }}</p>
            <p class="songArtist">{{ song.artist }}</p>
            <p class="songAlbum">{{ song.album }}</p>
            <p class="songGenre">{{ song.genre }}</p>
-        </div>        
+        </div>
     </div>
+    <br><br>
+    <dir-pagination-controls on-page-change="songs.goToTop()"></dir-pagination-controls>
 </div>

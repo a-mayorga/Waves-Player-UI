@@ -15,15 +15,15 @@
       'songsCtrl',
       'genresCtrl',
       'authSrvc',
-      'pageTitleDir'
+      'angularUtils.directives.dirPagination'
     ])
     .config(appConfig)
     .run(appRun);
 
-  appConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  appConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'paginationTemplateProvider'];
   appRun.$inject = ['$rootScope', '$state', 'authService'];
 
-  function appConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+  function appConfig($stateProvider, $urlRouterProvider, $locationProvider, paginationTemplateProvider) {
     /* Creating states */
     var loginState = {
       name: 'login',
@@ -135,6 +135,7 @@
     /* Disabling # notation on the address bar */
     $locationProvider.html5Mode(true);
 
+    paginationTemplateProvider.setPath('libs/angular-utils-pagination/dirPagination.tpl.html');
   }
 
   function appRun($rootScope, $state, authService) {

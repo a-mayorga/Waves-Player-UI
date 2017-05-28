@@ -561,3 +561,35 @@ img.albumImg:hover, img.albumImg:active {
 .song p.songGenre {
     width: calc(15% - 10px);
 }
+
+.pagination {
+  width: 100%;
+  list-style: none;
+  margin-left: 40%;
+}
+
+.pagination li {
+  display: inline-block;
+  margin: 0px 10px;
+}
+
+.pagination li>a {
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+}
+
+.active {
+  background-color: rgb(130, 149, 255);
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+li.active a {
+  color: white;
+}
+
+li.disabled a {
+  color: rgb(157, 157, 157);
+  cursor: default;
+}
