@@ -11,10 +11,12 @@
       'signUpCtrl',
       'playerCtrl',
       'artistsCtrl',
+      'artistCtrl',
       'albumsCtrl',
       'songsCtrl',
       'genresCtrl',
       'authSrvc',
+      'pageTitleDir',
       'angularUtils.directives.dirPagination'
     ])
     .config(appConfig)
@@ -73,6 +75,18 @@
       }
     }
 
+    var artistState = {
+      name: 'player.artist',
+      url: '/artists/{id}',
+      controller: 'ArtistCtrl',
+      controllerAs: 'artist',
+      templateUrl: 'js/templates/artist.html',
+      module: 'public',
+      data: {
+        pageTitle: 'Artista'
+      }
+    }
+
     var albumsState = {
       name: 'player.albums',
       url: '/albums',
@@ -124,6 +138,7 @@
     $stateProvider.state(signUpState);
     $stateProvider.state(playerState);
     $stateProvider.state(artistsState);
+    $stateProvider.state(artistState);
     $stateProvider.state(albumsState);
     $stateProvider.state(songsState);
     $stateProvider.state(genresState);
