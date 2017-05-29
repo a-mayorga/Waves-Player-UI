@@ -593,3 +593,161 @@ li.disabled a {
   color: rgb(157, 157, 157);
   cursor: default;
 }
+
+
+/*  INDIVIDUAL ARTIST SECTION  */
+#artistHeader {
+    width: calc(100% + 60px);
+    position: relative;
+    float: left;
+    min-height: 100px;
+    background: gray;
+    top: -30px;
+    margin-left: -30px;
+    color: white;
+    text-shadow: 0px 0px 8px rgba(0,0,0,.6);
+    font-size: 2.7em;
+    font-weight: 800;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 2.7em;
+}
+
+.albumSection {
+    width: calc(100% + 60px);
+    margin-left: -30px;
+    float: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.albumSection:nth-child(odd) {
+    background: #FDFDFD;
+}
+
+.albumSection .albumInfo {
+    width: 28%;
+    float: left;
+}
+
+.albumSection .albumInfo #albumArtwork {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,.3);
+    margin-bottom: 10px;
+    float: left;
+}
+
+.albumSection .albumInfo #insideAlbumTitle {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0;
+    width: 80%;
+    float: left;
+    margin-left: 10%;
+}
+
+.albumSection .albumInfo #insideAlbumGenre {
+    font-size: 1em;
+    font-weight: 400;
+    text-align: right;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0;
+    float: left;
+    width: 40%;
+    margin-left: 10%;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.albumSection .albumInfo #insideAlbumYear {
+    font-size: 1em;
+    font-weight: 400;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0;
+    float: left;
+    width: 40%;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.albumSection .insideAlbumSongs {
+    float: left;
+    width: 70%;
+    min-height: 300px;
+}
+
+.albumSection .insideAlbumSongs .insideSong {
+    width: 100%;
+    height: 30px;
+    float: left;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.albumSection .insideAlbumSongs .insideSong:hover {
+    background: #F5F5F5;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.albumSection .insideAlbumSongs .insideSong .insideSongTrack {
+    float: left;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    text-align: left;
+    color: #8C8C8C;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+}
+
+.albumSection .insideAlbumSongs .insideSong .insideSongName {
+    float: left;
+    width: calc(100% - 100px);
+    height: 30px;
+    line-height: 28px;
+}
+
+.albumSection .insideAlbumSongs .insideSong .insideSongPlay {
+    float: left;
+    width: 35px;
+    height: 30px;
+    line-height: 28px;
+    text-align: center;
+}
+
+.albumSection .insideAlbumSongs .insideSong .insideSongPlay img {
+    max-height: 20px;
+    cursor: pointer;
+    margin-top: 5px;
+    opacity: 0;
+    transition: .3s;
+}
+
+.albumSection .insideAlbumSongs .insideSong .insideSongPlay img:hover{
+    opacity: 1 !important;
+}
+
+.albumSection .insideAlbumSongs .insideSong .insideSongAdd {
+    float: left;
+    width: 35px;
+    height: 30px;
+    line-height: 28px;
+    text-align: center;
+}
