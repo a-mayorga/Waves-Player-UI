@@ -14,7 +14,7 @@
         var vm = this;
         vm.artists = {};
         vm.goToTop = $anchorScroll;
-        
+
         getArtists();
 
         function getArtists() {
