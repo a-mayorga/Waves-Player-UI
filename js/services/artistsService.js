@@ -16,7 +16,7 @@
     function artistsService($http) {
         var artistsService = {
             getArtists: getArtists,
-            getArtist: getArtist,
+            getArtistData: getArtistData,
             createArtist: createArtist,
             updateArtist: updateArtist,
             deleteArtist: deleteArtist
@@ -38,7 +38,7 @@
                   });
         }
 
-        function getArtist(artistId) {
+        function getArtistData(artistId) {
           return $http({
                   method: 'GET',
                   url: 'http://localhost:51954/api/artist/' + artistId,

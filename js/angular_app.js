@@ -17,7 +17,8 @@
       'genresCtrl',
       'authSrvc',
       'pageTitleDir',
-      'angularUtils.directives.dirPagination'
+      'angularUtils.directives.dirPagination',
+      'ui.filters'
     ])
     .config(appConfig)
     .run(appRun);

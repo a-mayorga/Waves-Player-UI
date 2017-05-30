@@ -1,155 +1,17 @@
 <div class="insideContent">
   <div>
-    <h1 id="artistHeader">Adele</h1>
-    <div class="albumSection">
-       
+    <h1 id="artistHeader">{{ artist.artistData.name }}</h1>
+    <div class="albumSection" ng-repeat="album in artist.songs | unique:'albumID'">
         <div class="albumInfo">
-            <img id="albumArtwork" src="media/albums/2.jpg">
-            <h1 id="insideAlbumTitle">A Head Full of Dreams</h1>
-            <h2 id="insideAlbumGenre">Pop</h2>
-            <h2 id="insideAlbumYear">2016</h2>
+            <img id="albumArtwork" src="media/albums/{{ album.albumID }}.jpg">
+            <h1 id="insideAlbumTitle">{{ album.album }}</h1>
+            <h2 id="insideAlbumGenre">{{ album.genre }}</h2>
+            <h2 id="insideAlbumYear">{{ album.albumYear }}</h2>
         </div>
         <div class="insideAlbumSongs">
-            <div class="insideSong">
-                <p class="insideSongTrack">1</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">2</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">3</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">4</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">5</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">6</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">7</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-        </div>
-    </div>
-    <div class="albumSection">
-       
-        <div class="albumInfo">
-            <img id="albumArtwork" src="media/albums/2.jpg">
-            <h1 id="insideAlbumTitle">A Head Full of Dreams</h1>
-            <h2 id="insideAlbumGenre">Pop</h2>
-            <h2 id="insideAlbumYear">2016</h2>
-        </div>
-        <div class="insideAlbumSongs">
-            <div class="insideSong">
-                <p class="insideSongTrack">1</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">2</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">3</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">4</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">5</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">6</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">7</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">4</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">5</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">6</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">7</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">4</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">5</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">6</p>
-                <p class="insideSongName">Hello</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
-                <p class="insideSongAdd">+</p>
-            </div>
-            <div class="insideSong">
-                <p class="insideSongTrack">7</p>
-                <p class="insideSongName">Hello</p>
+            <div class="insideSong" ng-repeat="song in artist.songs" ng-if="album.albumID == song.albumID">
+                <p class="insideSongTrack">{{ song.songNumber }}</p>
+                <p class="insideSongName">{{ song.name }}</p>
                 <p class="insideSongPlay"><img src="media/play-button.svg"></p>
                 <p class="insideSongAdd">+</p>
             </div>
