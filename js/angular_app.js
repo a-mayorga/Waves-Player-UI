@@ -13,11 +13,13 @@
       'artistsCtrl',
       'artistCtrl',
       'albumsCtrl',
+      'albumCtrl',
       'songsCtrl',
       'genresCtrl',
       'authSrvc',
       'pageTitleDir',
       'audioPlayerDir',
+      'keypressDir',
       'angularUtils.directives.dirPagination',
       'ui.filters'
     ])
@@ -101,6 +103,18 @@
       }
     }
 
+    var albumState = {
+      name: 'player.album',
+      url: '/albums/{id}',
+      controller: 'AlbumCtrl',
+      controllerAs: 'album',
+      templateUrl: 'js/templates/album.html',
+      module: 'public',
+      data: {
+        pageTitle: 'Álbum'
+      }
+    }
+
     var songsState = {
       name: 'player.songs',
       url: '/songs',
@@ -142,6 +156,7 @@
     $stateProvider.state(artistsState);
     $stateProvider.state(artistState);
     $stateProvider.state(albumsState);
+    $stateProvider.state(albumState);
     $stateProvider.state(songsState);
     $stateProvider.state(genresState);
     $stateProvider.state(notFoundState);

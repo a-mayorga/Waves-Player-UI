@@ -2,7 +2,7 @@
   <h1>Waves – Albums</h1>
 
   <div class="newInsideContent">
-    <div class="album" dir-paginate="album in albums.albums | itemsPerPage: 15">
+    <div class="album" dir-paginate="album in albums.albums | itemsPerPage: 15" ui-sref="player.album({id: {{ album.id }} })">
       <img src="media/albums/{{ album.id }}.jpg" class="albumImg">
       <p>{{ album.title }}</p>
     </div>

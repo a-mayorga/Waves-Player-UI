@@ -1,0 +1,14 @@
+<div class="insideContent">
+  <div>
+    <h1 id="artistHeader">{{ album.albumData.title }} ({{ album.albumData.year }})</h1>
+    <div class="newInsideContent">
+      <div class="song" dir-paginate="song in album.songs | itemsPerPage: 18" ng-click="album.playSong($event, song)">
+        <img src="media/albums/{{ song.albumID }}.jpg">
+        <p class="songName">{{ song.name }}</p>
+        <p class="songArtist">{{ song.artist }}</p>
+        <p class="songAlbum">{{ song.album }}</p>
+        <p class="songGenre">{{ song.genre }}</p>
+      </div>
+    </div>
+  </div>
+</div>

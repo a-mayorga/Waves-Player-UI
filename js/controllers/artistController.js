@@ -27,7 +27,7 @@
 
       songsService.getSongsByArtist(vm.artistId).then(function(data) {
         vm.songs = data;
-      })
+      });
     }
 
     function playSong($event, song){

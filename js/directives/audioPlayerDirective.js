@@ -37,12 +37,11 @@
 
       // tell audio element to play/pause, you can also use scope.audio.play() or scope.audio.pause();
       scope.playpause = function() {
-        if(scope.playing){
+        if (scope.playing) {
           scope.playing = false;
           scope.audio.pause();
           scope.info.state = 'play-button';
-        }
-        else{
+        } else {
           scope.playing = true;
           scope.audio.play();
           scope.info.state = 'pause';
@@ -73,6 +72,14 @@
         //   scope.currentNum = currentNum;
         //   scope.totalNum = totalNum;
       });
+
+      $rootScope.$on('playpause', function() {
+        scope.playpause();
+      });
+
+      setInterval(function() {
+        scope.$apply();
+      }, 100);
     }
   }
 
