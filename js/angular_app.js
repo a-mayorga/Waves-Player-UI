@@ -17,6 +17,7 @@
       'genresCtrl',
       'authSrvc',
       'pageTitleDir',
+      'audioPlayerDir',
       'angularUtils.directives.dirPagination',
       'ui.filters'
     ])

@@ -12,7 +12,7 @@
             <div class="insideSong" ng-repeat="song in artist.songs" ng-if="album.albumID == song.albumID">
                 <p class="insideSongTrack">{{ song.songNumber }}</p>
                 <p class="insideSongName">{{ song.name }}</p>
-                <p class="insideSongPlay"><img src="media/play-button.svg"></p>
+                <p class="insideSongPlay"><img src="media/play-button.svg" ng-click="artist.playSong($event, song)"></p>
                 <p class="insideSongAdd">+</p>
             </div>
         </div>
