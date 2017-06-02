@@ -382,7 +382,7 @@ h1.menuCategory {
     transition: .5;
 }
 
-#handler:active, #handler:focus {
+#handler:hover, #handler:active, #handler:focus {
     width: 16px;
     height: 16px;
     margin-left: -8px;

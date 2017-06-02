@@ -1,8 +1,8 @@
-<div id="player">
+<div id="player" ng-mouseup="holding = false">
   <img id="art" src="media/albums/{{ info.albumID }}.jpg">
-  <div id="track">
+  <div id="track" ng-mousedown="seekTrack($event)">
     <div id="progress"></div>
-    <div id="handler"></div>
+    <div id="handler" ng-mousemove="handlerSeek($event)"></div>
   </div>
   <ul>
     <li id="title">{{ info.name }}</li>

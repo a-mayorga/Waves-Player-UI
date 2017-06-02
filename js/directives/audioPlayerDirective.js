@@ -22,12 +22,17 @@
       scope.audio = new Audio();
       scope.currentNum = 0;
       scope.playing = false;
+      scope.holding = false;
       scope.info = {};
       scope.info.albumID = 'no-cover';
       scope.info.state = 'play-button';
+      scope.player = angular.element('#player');
+      scope.track = angular.element('#track');
+      scope.progress = angular.element('#progress');
+      scope.handler = angular.element('#handler');
+      scope.seekTrack = seekTrack;
+      scope.handlerSeek = handlerSeek;
 
-
-      // tell others to give me my prev/next track (with audio.set message)
       scope.next = function() {
         $rootScope.$broadcast('audio.next');
       };
@@ -35,34 +40,42 @@
         $rootScope.$broadcast('audio.prev');
       };
 
-      // tell audio element to play/pause, you can also use scope.audio.play() or scope.audio.pause();
+      // Play / pause function for the button or the space bar
       scope.playpause = function() {
         if (scope.playing) {
-          scope.playing = false;
           scope.audio.pause();
-          scope.info.state = 'play-button';
         } else {
-          scope.playing = true;
           scope.audio.play();
-          scope.info.state = 'pause';
         }
       };
 
-      // listen for audio-element events, and broadcast stuff
+      // Listen for audio-element events
       scope.audio.addEventListener('play', function() {
-        $rootScope.$broadcast('audio.play', this);
+        scope.playing = true;
+        scope.info.state = 'pause';
       });
+
       scope.audio.addEventListener('pause', function() {
-        $rootScope.$broadcast('audio.pause', this);
+        scope.playing = false;
+        scope.info.state = 'play-button';
       });
+
+      scope.audio.addEventListener('loadedmetadata', function() {
+        scope.info.duration = this.duration;
+      });
+
       scope.audio.addEventListener('timeupdate', function() {
-        $rootScope.$broadcast('audio.time', this);
+        var curtime = scope.audio.currentTime;
+        var percent = Math.round((curtime * 100) / scope.info.duration);
+        scope.progress.css('width', percent + '%');
+        scope.handler.css('left', percent + '%');
       });
+
       scope.audio.addEventListener('ended', function() {
-        $rootScope.$broadcast('audio.ended', this);
         scope.next();
       });
 
+      // Listen for events emitted by children controllers
       $rootScope.$on('play.song', function(event, data) {
         scope.audio.src = 'http://localhost/waves/media/songs/0000222.mp3';
         scope.audio.play();
@@ -80,6 +93,23 @@
       setInterval(function() {
         scope.$apply();
       }, 100);
+
+      function seekTrack(e) {
+        scope.holding = true;
+        var x = e.pageX - scope.player.prop('offsetLeft') - scope.track.prop('offsetLeft');
+        var percent = Math.round((x * 100) / scope.track.prop('offsetWidth'));
+        if (percent > 100) percent = 100;
+        if (percent < 0) percent = 0;
+        scope.progress.css('width', percent + '%');
+        scope.handler.css('left', percent + '%');
+        scope.audio.play();
+        scope.audio.currentTime = (percent * scope.info.duration) / 100;
+      }
+
+      function handlerSeek(e){
+        e.preventDefault();
+        if(scope.holding) seekTrack(e);
+      }
     }
   }
 
