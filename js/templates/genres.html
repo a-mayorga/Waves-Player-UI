@@ -3,7 +3,7 @@
 
     <div class="newInsideContent">
         <div class="album" ng-repeat="genre in genres.genres">
-           <img src="media/genres/pop.jpg" class="albumImg">
+           <img src="media/genres/{{ genre.id }}.png" class="albumImg" ui-sref="navigation.genre({id: {{ genre.id }} })">
            <p>{{ genre.name }}</p>
         </div>
     </div>

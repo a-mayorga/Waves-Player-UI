@@ -11,7 +11,7 @@
   function audioPlayerDir($rootScope) {
     var playerDir = {
       link: link,
-      templateUrl: 'js/templates/player1.html',
+      templateUrl: 'js/templates/player.html',
       restrict: 'E',
     };
 

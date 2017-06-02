@@ -9,13 +9,14 @@
       'mainCtrl',
       'loginCtrl',
       'signUpCtrl',
-      'playerCtrl',
+      'navigationCtrl',
       'artistsCtrl',
       'artistCtrl',
       'albumsCtrl',
       'albumCtrl',
       'songsCtrl',
       'genresCtrl',
+      'genreCtrl',
       'authSrvc',
       'pageTitleDir',
       'audioPlayerDir',
@@ -55,12 +56,12 @@
       }
     }
 
-    var playerState = {
-      name: 'player',
+    var navigationState = {
+      name: 'navigation',
       url: '/player',
-      controller: 'PlayerCtrl',
-      controllerAs: 'player',
-      templateUrl: 'js/templates/player.html',
+      controller: 'NavigationCtrl',
+      controllerAs: 'navigation',
+      templateUrl: 'js/templates/navigation.html',
       module: 'public',
       data: {
         pageTitle: 'Inicio'
@@ -68,7 +69,7 @@
     }
 
     var artistsState = {
-      name: 'player.artists',
+      name: 'navigation.artists',
       url: '/artists',
       controller: 'ArtistsCtrl',
       controllerAs: 'artists',
@@ -80,7 +81,7 @@
     }
 
     var artistState = {
-      name: 'player.artist',
+      name: 'navigation.artist',
       url: '/artists/{id}',
       controller: 'ArtistCtrl',
       controllerAs: 'artist',
@@ -92,7 +93,7 @@
     }
 
     var albumsState = {
-      name: 'player.albums',
+      name: 'navigation.albums',
       url: '/albums',
       controller: 'AlbumsCtrl',
       controllerAs: 'albums',
@@ -104,7 +105,7 @@
     }
 
     var albumState = {
-      name: 'player.album',
+      name: 'navigation.album',
       url: '/albums/{id}',
       controller: 'AlbumCtrl',
       controllerAs: 'album',
@@ -116,7 +117,7 @@
     }
 
     var songsState = {
-      name: 'player.songs',
+      name: 'navigation.songs',
       url: '/songs',
       controller: 'SongsCtrl',
       controllerAs: 'songs',
@@ -128,7 +129,7 @@
     }
 
     var genresState = {
-      name: 'player.genres',
+      name: 'navigation.genres',
       url: '/genres',
       controller: 'GenresCtrl',
       controllerAs: 'genres',
@@ -136,6 +137,18 @@
       module: 'public',
       data: {
         pageTitle: 'Géneros'
+      }
+    }
+
+    var genreState = {
+      name: 'navigation.genre',
+      url: '/genres/{id}',
+      controller: 'GenreCtrl',
+      controllerAs: 'genre',
+      templateUrl: 'js/templates/genre.html',
+      module: 'public',
+      data: {
+        pageTitle: 'Género'
       }
     }
 
@@ -152,13 +165,14 @@
     /* Adding states to the StateProvider */
     $stateProvider.state(loginState);
     $stateProvider.state(signUpState);
-    $stateProvider.state(playerState);
+    $stateProvider.state(navigationState);
     $stateProvider.state(artistsState);
     $stateProvider.state(artistState);
     $stateProvider.state(albumsState);
     $stateProvider.state(albumState);
     $stateProvider.state(songsState);
     $stateProvider.state(genresState);
+    $stateProvider.state(genreState);
     $stateProvider.state(notFoundState);
 
     /* Defining redirection state when the route on the address bar doesn't match any state */

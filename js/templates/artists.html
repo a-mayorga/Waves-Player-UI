@@ -3,7 +3,7 @@
 
     <div class="newInsideContent">
         <div class="artist" dir-paginate="artist in artists.artists | itemsPerPage: 10">
-           <img src="media/artists/{{ artist.id }}.jpg" class="artistImg" ui-sref="player.artist({id: {{ artist.id }} })">
+           <img src="media/artists/{{ artist.id }}.jpg" class="artistImg" ui-sref="navigation.artist({id: {{ artist.id }} })">
            <p>{{ artist.name }}</p>
         </div>
     </div>

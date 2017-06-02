@@ -3,15 +3,15 @@
   'use strict';
 
   angular
-    .module('playerCtrl', [
+    .module('navigationCtrl', [
       'authSrvc',
       'playerSrvc',
     ])
-    .controller('PlayerCtrl', playerController);
+    .controller('NavigationCtrl', navigationController);
 
-  playerController.$inject = ['sessionControl','playerService'];
+  navigationController.$inject = ['sessionControl','playerService'];
 
-  function playerController(sessionControl,playerService) {
+  function navigationController(sessionControl,playerService) {
     var vm = this;
     vm.userData = {
       id: sessionControl.get('id'),

@@ -16,6 +16,7 @@
     function genresService($http) {
         var genresService = {
             getGenres: getGenre,
+            getGenreData: getGenreData,
             createGenre: createGenre,
             updateGenre: updateGenre,
             deleteGenre: deleteGenre
@@ -27,6 +28,19 @@
           return $http({
                   method: 'GET',
                   url: 'http://localhost:51954/api/genre',
+              })
+              .then(function(response) {
+                      return response.data
+                  },
+                  function(error) {
+                      console.log(error);
+                  });
+        }
+
+        function getGenreData(genreId) {
+          return $http({
+                  method: 'GET',
+                  url: 'http://localhost:51954/api/genre/' + genreId,
               })
               .then(function(response) {
                       return response.data
