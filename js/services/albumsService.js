@@ -16,6 +16,7 @@
     function albumsService($http) {
         var albumsService = {
             getAlbums: getAlbums,
+            getAlbumData: getAlbumData,
             createAlbum: createAlbum,
             updateAlbum: updateAlbum,
             deleteAlbum: deleteAlbum
@@ -27,6 +28,19 @@
           return $http({
                   method: 'GET',
                   url: 'http://localhost:51954/api/album',
+              })
+              .then(function(response) {
+                      return response.data
+                  },
+                  function(error) {
+                      console.log(error);
+                  });
+        }
+
+        function getAlbumData(albumId){
+          return $http({
+                  method: 'GET',
+                  url: 'http://localhost:51954/api/album/' + albumId,
               })
               .then(function(response) {
                       return response.data

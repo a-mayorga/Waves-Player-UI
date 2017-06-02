@@ -9,13 +9,14 @@
     ])
     .controller('ArtistCtrl', artistController);
 
-  artistController.$inject = ['$stateParams', 'artistsService', 'songsService'];
+  artistController.$inject = ['$rootScope', '$stateParams', 'artistsService', 'songsService'];
 
-  function artistController($stateParams, artistsService, songsService) {
+  function artistController($rootScope, $stateParams, artistsService, songsService) {
     var vm = this;
     vm.artistId = $stateParams.id;
     vm.artistData = {};
     vm.songs = {};
+    vm.playSong = playSong;
 
     getArtistData();
 
@@ -26,7 +27,11 @@
 
       songsService.getSongsByArtist(vm.artistId).then(function(data) {
         vm.songs = data;
-      })
+      });
+    }
+
+    function playSong($event, song){
+      $rootScope.$emit('play.song', song);
     }
   }
 

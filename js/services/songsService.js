@@ -17,6 +17,7 @@
     var songsService = {
       getSongs: getSongs,
       getSongsByArtist: getSongsByArtist,
+      getSongsByAlbum: getSongsByAlbum,
       createSong: createSong,
       updateSong: updateSong,
       deleteSong: deleteSong
@@ -41,6 +42,19 @@
       return $http({
           method: 'GET',
           url: 'http://localhost:51954/api/song/artist/' + artistId,
+        })
+        .then(function(response) {
+            return response.data
+          },
+          function(error) {
+            console.log(error);
+          });
+    }
+
+    function getSongsByAlbum(albumId) {
+      return $http({
+          method: 'GET',
+          url: 'http://localhost:51954/api/song/album/' + albumId,
         })
         .then(function(response) {
             return response.data
