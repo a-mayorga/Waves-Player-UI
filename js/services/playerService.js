@@ -21,7 +21,6 @@
               url: 'http://localhost:51954/api/player/1',
             })
             .then(function(response) {
-                // console.log(response.data)
                 return response.data;
               },
               function(error) {

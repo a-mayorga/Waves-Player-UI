@@ -1,0 +1,15 @@
+<div class="insideContent">
+    <h1>Waves – Mi Biblioteca</h1>
+
+    <div class="newInsideContent">
+        <div class="song" dir-paginate="library in library.library | itemsPerPage: 18" ng-click="library.playSong($event, song)"">
+           <img src="media/albums/{{ library.albumID }}.jpg">
+           <p class="songName">{{ library.songName }}</p>
+           <p class="songArtist">{{ library.artistName }}</p>
+           <p class="songAlbum">{{ library.albumTitle }}</p>
+           <p class="songGenre">{{ library.genreName }}</p>
+        </div>
+    </div>
+    <br><br>
+    <dir-pagination-controls on-page-change="library.goToTop()"></dir-pagination-controls>
+</div>

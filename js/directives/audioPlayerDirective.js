@@ -77,7 +77,7 @@
 
       // Listen for events emitted by children controllers
       $rootScope.$on('play.song', function(event, data) {
-        scope.audio.src = 'http://localhost/waves/media/songs/0000222.mp3';
+        scope.audio.src = data.songRoute;
         scope.audio.play();
         scope.playing = true;
         scope.info = data;

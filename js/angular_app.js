@@ -17,12 +17,13 @@
       'songsCtrl',
       'genresCtrl',
       'genreCtrl',
+      'libraryCtrl',
       'authSrvc',
       'pageTitleDir',
       'audioPlayerDir',
       'keypressDir',
       'angularUtils.directives.dirPagination',
-      'ui.filters'
+      'ui.filters',
     ])
     .config(appConfig)
     .run(appRun);
@@ -152,6 +153,18 @@
       }
     }
 
+    var libraryState = {
+      name: 'navigation.library',
+      url: '/library',
+      controller: 'LibraryCtrl',
+      controllerAs: 'library',
+      templateUrl: 'js/templates/library.html',
+      module: 'public',
+      data: {
+        pageTitle: 'Biblioteca'
+      }
+    }
+
     var notFoundState = {
       name: '404',
       url: '/404',
@@ -173,6 +186,7 @@
     $stateProvider.state(songsState);
     $stateProvider.state(genresState);
     $stateProvider.state(genreState);
+    $stateProvider.state(libraryState);
     $stateProvider.state(notFoundState);
 
     /* Defining redirection state when the route on the address bar doesn't match any state */
@@ -198,7 +212,7 @@
       /* Avoiding a logged user from returning to the login form */
       if (toState.name === 'login' && authService.isLoggedIn()) {
         evt.preventDefault();
-        $state.go('player');
+        $state.go('navigation.albums');
       }
     });
   }
