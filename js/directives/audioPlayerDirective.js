@@ -20,9 +20,10 @@
     function link(scope, element) {
       var vm = this;
       scope.audio = new Audio();
-      scope.currentNum = 0;
+      scope.currentTrack = 0;
       scope.playing = false;
       scope.holding = false;
+      scope.songs = {};
       scope.info = {};
       scope.info.albumID = 'no-cover';
       scope.info.state = 'play-button';
@@ -30,23 +31,35 @@
       scope.track = angular.element('#track');
       scope.progress = angular.element('#progress');
       scope.handler = angular.element('#handler');
+      scope.playPause = playPause;
+      scope.next = next;
+      scope.prev = prev;
       scope.seekTrack = seekTrack;
       scope.handlerSeek = handlerSeek;
 
-      scope.next = function() {
-        $rootScope.$broadcast('audio.next');
-      };
-      scope.prev = function() {
-        $rootScope.$broadcast('audio.prev');
+      // Play / pause function for the button or the space bar
+      function playPause() {
+        scope.playing ? scope.audio.pause() : scope.audio.play();
       };
 
-      // Play / pause function for the button or the space bar
-      scope.playpause = function() {
-        if (scope.playing) {
-          scope.audio.pause();
-        } else {
-          scope.audio.play();
+      function next() {
+        scope.currentTrack++;
+
+        if(scope.currentTrack >= scope.songs.length){
+          scope.currentTrack = scope.songs.length - 1;
         }
+
+        playSong();
+      };
+
+      function prev() {
+        scope.currentTrack--;
+
+        if(scope.currentTrack < 0){
+          scope.currentTrack = 0;
+        }
+
+        playSong();
       };
 
       // Listen for audio-element events
@@ -76,24 +89,28 @@
       });
 
       // Listen for events emitted by children controllers
-      $rootScope.$on('play.song', function(event, data) {
-        scope.audio.src = data.songRoute;
-        console.log(data.songRoute);
-        scope.audio.play();
-        scope.playing = true;
-        scope.info = data;
-        scope.info.state = 'pause';
-        //   scope.currentNum = currentNum;
-        //   scope.totalNum = totalNum;
+      $rootScope.$on('loadsongs', function(event, index, songs) {
+        scope.songs = {};
+        scope.songs = songs;
+        scope.currentTrack = index;
+        playSong();
       });
 
       $rootScope.$on('playpause', function() {
-        scope.playpause();
+        scope.playPause();
       });
 
       setInterval(function() {
         scope.$apply();
       }, 100);
+
+      function playSong(){
+        scope.audio.src = scope.songs[scope.currentTrack].songRoute;
+        scope.audio.play();
+        scope.playing = true;
+        scope.info = scope.songs[scope.currentTrack];
+        scope.info.state = 'pause';
+      }
 
       function seekTrack(e) {
         scope.holding = true;
