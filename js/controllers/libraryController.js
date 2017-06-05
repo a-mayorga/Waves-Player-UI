@@ -16,6 +16,7 @@
     vm.userId = 3;
     // sessionControl.get('id')
     vm.songs = {};
+    vm.playSong = playSong;
     vm.goToTop = $anchorScroll;
 
     getLibrary();
@@ -26,8 +27,8 @@
       });
     }
 
-    function playSong($event, song) {
-      $rootScope.$emit('play.song', song);
+    function playSong($event, $index, songs) {
+      $rootScope.$emit('loadsongs', $index, songs);
     }
   }
 

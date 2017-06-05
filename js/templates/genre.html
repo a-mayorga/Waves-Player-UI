@@ -2,13 +2,11 @@
     <h1>{{ genre.genreData.name }}</h1>
 
     <div class="newInsideContent">
-        <div class="song" dir-paginate="song in genre.songs | itemsPerPage: 18" ng-click="genre.playSong($event, song)">
+        <div class="song" ng-repeat="song in genre.songs" ng-click="genre.playSong($event, $index, genre.songs)">
            <img src="media/albums/{{ song.albumID }}.jpg">
            <p class="songName">{{ song.name }}</p>
            <p class="songArtist">{{ song.artist }}</p>
            <p class="songAlbum">{{ song.album }}</p>
         </div>
     </div>
-    <br><br>
-    <dir-pagination-controls on-page-change="genre.goToTop()"></dir-pagination-controls>
 </div>

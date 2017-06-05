@@ -39,8 +39,8 @@
       // });
     }
 
-    function playSong($event, song){
-      $rootScope.$emit('play.song', song);
+    function playSong($event, $index, songs){
+      $rootScope.$emit('loadsongs', $index, songs);
     }
   }
 
