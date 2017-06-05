@@ -16,6 +16,7 @@
     function libraryService($http) {
         var libraryService = {
             getLibrary: getLibrary,
+            saveInLibrary:saveInLibrary,
         }
 
         return libraryService;
@@ -24,6 +25,19 @@
           return $http({
                   method: 'GET',
                   url: 'http://localhost:51954/api/library/' + sessionStorage.id,
+              })
+              .then(function(response) {
+                      return response.data
+                  },
+                  function(error) {
+                      console.log(error);
+                  });
+        }
+
+        function saveInLibrary(){
+          return $http({
+                  method: 'GET',
+                  url: '',
               })
               .then(function(response) {
                       return response.data

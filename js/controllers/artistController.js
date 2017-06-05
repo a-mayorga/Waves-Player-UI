@@ -5,18 +5,20 @@
   angular
     .module('artistCtrl', [
       'artistsSrvc',
-      'songsSrvc'
+      'songsSrvc',
+      'librarySrvc',
     ])
     .controller('ArtistCtrl', artistController);
 
-  artistController.$inject = ['$rootScope', '$stateParams', 'artistsService', 'songsService'];
+  artistController.$inject = ['$rootScope', '$stateParams', 'artistsService', 'songsService','libraryService'];
 
-  function artistController($rootScope, $stateParams, artistsService, songsService) {
+  function artistController($rootScope, $stateParams, artistsService, songsService,libraryService) {
     var vm = this;
     vm.artistId = $stateParams.id;
     vm.artistData = {};
     vm.songs = {};
     vm.playSong = playSong;
+    vm.saveSongLibrary = saveSongLibrary;
 
     getArtistData();
 
@@ -28,6 +30,13 @@
       songsService.getSongsByArtist(vm.artistId).then(function(data) {
         vm.songs = data;
       });
+    }
+
+    function saveSongLibrary($event, song){
+      alert('este tiene que guardar');
+      // libraryService.saveInLibrary(song).then(function(data) {
+      //   alert(data);
+      // });
     }
 
     function playSong($event, song){

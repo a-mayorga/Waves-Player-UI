@@ -78,6 +78,7 @@
       // Listen for events emitted by children controllers
       $rootScope.$on('play.song', function(event, data) {
         scope.audio.src = data.songRoute;
+        console.log(data.songRoute);
         scope.audio.play();
         scope.playing = true;
         scope.info = data;
