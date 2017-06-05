@@ -15,6 +15,7 @@
   function songsController($rootScope, $anchorScroll, sessionControl, songsService, libraryService) {
     var vm = this;
     vm.songs = {};
+    vm.userId = sessionControl.get('id');
     vm.playSong = playSong;
     vm.addToLibrary = addToLibrary;
     vm.goToTop = $anchorScroll;
@@ -30,8 +31,7 @@
     function addToLibrary($event, songId) {
       var libraryData = {
         songID: songId,
-        userID: sessionStorage.getItem("id"),
-        // sessionControl.get('id')
+        userID: vm.userId
       }
 
       libraryService.addToLibrary(libraryData).then(function(data) {

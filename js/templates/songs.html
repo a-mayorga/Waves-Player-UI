@@ -2,9 +2,9 @@
   <h1>Waves – Canciones</h1>
 
   <div class="newInsideContent">
-    <div class="song" ng-repeat="song in songs.songs" ng-click="songs.playSong($event, $index, songs.songs)">
+    <div class="song" ng-repeat="song in songs.songs">
       <img src="media/albums/{{ song.albumID }}.jpg">
-      <p class="songName">{{ song.name }}</p>
+      <p class="songName" ng-click="songs.playSong($event, $index, songs.songs)">{{ song.name }}</p>
       <p class="songArtist">{{ song.artist }}</p>
       <p class="songAlbum">{{ song.album }}</p>
       <p class="songGenre">{{ song.genre }}</p>

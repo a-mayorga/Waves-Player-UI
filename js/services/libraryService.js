@@ -17,7 +17,7 @@
     var libraryService = {
       getLibrary: getLibrary,
       addToLibrary: addToLibrary,
-      deleteToLibrary: deleteToLibrary,
+      deleteFromLibrary: deleteFromLibrary
     }
 
     return libraryService;
@@ -52,7 +52,7 @@
           });
     }
 
-    function deleteToLibrary(libraryData) {
+    function deleteFromLibrary(libraryData) {
       return $http({
           method: 'POST',
           url: 'http://localhost:51954/api/Delete',

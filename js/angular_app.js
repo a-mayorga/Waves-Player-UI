@@ -63,7 +63,7 @@
       controller: 'NavigationCtrl',
       controllerAs: 'navigation',
       templateUrl: 'js/templates/navigation.html',
-      module: 'public',
+      module: 'private',
       data: {
         pageTitle: 'Inicio'
       }
@@ -75,7 +75,7 @@
       controller: 'ArtistsCtrl',
       controllerAs: 'artists',
       templateUrl: 'js/templates/artists.html',
-      module: 'public',
+      module: 'private',
       data: {
         pageTitle: 'Artistas'
       }
@@ -87,7 +87,7 @@
       controller: 'ArtistCtrl',
       controllerAs: 'artist',
       templateUrl: 'js/templates/artist.html',
-      module: 'public',
+      module: 'private',
       data: {
         pageTitle: 'Artista'
       }
@@ -99,7 +99,7 @@
       controller: 'AlbumsCtrl',
       controllerAs: 'albums',
       templateUrl: 'js/templates/albums.html',
-      module: 'public',
+      module: 'private',
       data: {
         pageTitle: 'Álbums'
       }
@@ -111,7 +111,7 @@
       controller: 'AlbumCtrl',
       controllerAs: 'album',
       templateUrl: 'js/templates/album.html',
-      module: 'public',
+      module: 'private',
       data: {
         pageTitle: 'Álbum'
       }
@@ -123,7 +123,7 @@
       controller: 'SongsCtrl',
       controllerAs: 'songs',
       templateUrl: 'js/templates/songs.html',
-      module: 'public',
+      module: 'private',
       data: {
         pageTitle: 'Canciones'
       }
@@ -135,7 +135,7 @@
       controller: 'GenresCtrl',
       controllerAs: 'genres',
       templateUrl: 'js/templates/genres.html',
-      module: 'public',
+      module: 'private',
       data: {
         pageTitle: 'Géneros'
       }
@@ -147,7 +147,7 @@
       controller: 'GenreCtrl',
       controllerAs: 'genre',
       templateUrl: 'js/templates/genre.html',
-      module: 'public',
+      module: 'private',
       data: {
         pageTitle: 'Género'
       }
@@ -159,7 +159,7 @@
       controller: 'LibraryCtrl',
       controllerAs: 'library',
       templateUrl: 'js/templates/library.html',
-      module: 'public',
+      module: 'private',
       data: {
         pageTitle: 'Biblioteca'
       }

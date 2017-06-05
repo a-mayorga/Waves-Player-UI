@@ -1,25 +1,25 @@
 (function() {
 
-    'use strict';
+  'use strict';
 
-    angular
-        .module('genresCtrl', [
-          'genresSrvc'
-        ])
-        .controller('GenresCtrl', genresController);
+  angular
+    .module('genresCtrl', [
+      'genresSrvc'
+    ])
+    .controller('GenresCtrl', genresController);
 
-    genresController.$inject = ['genresService'];
+  genresController.$inject = ['genresService'];
 
-    function genresController(genresService) {
-        var vm = this;
-        vm.genres = {};
-        getGenres();
+  function genresController(genresService) {
+    var vm = this;
+    vm.genres = {};
+    getGenres();
 
-        function getGenres() {
-            genresService.getGenres().then(function(data) {
-                vm.genres = data;
-            });
-        }
+    function getGenres() {
+      genresService.getGenres().then(function(data) {
+        vm.genres = data;
+      });
     }
+  }
 
 })();
