@@ -23,7 +23,7 @@
       'audioPlayerDir',
       'keypressDir',
       'angularUtils.directives.dirPagination',
-      'ui.filters',
+      'ui.filters'
     ])
     .config(appConfig)
     .run(appRun);

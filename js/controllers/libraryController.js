@@ -5,28 +5,28 @@
   angular
     .module('libraryCtrl', [
       'authSrvc',
-      'librarySrvc',
-      'songsSrvc',
+      'songsSrvc'
     ])
     .controller('LibraryCtrl', libraryController);
 
-  libraryController.$inject = ['$rootScope','$anchorScroll','libraryService','songsService'];
+  libraryController.$inject = ['$rootScope', '$anchorScroll', 'sessionControl', 'libraryService'];
 
-  function libraryController($rootScope,$anchorScroll,libraryService) {
+  function libraryController($rootScope, $anchorScroll, sessionControl, libraryService) {
     var vm = this;
-    vm.library = {};
+    vm.userId = 3;
+    // sessionControl.get('id')
+    vm.songs = {};
     vm.goToTop = $anchorScroll;
 
     getLibrary();
 
     function getLibrary() {
-        libraryService.getLibrary().then(function(data) {
-            vm.library = data;
-            console.log(data);
-        });
+      libraryService.getLibrary(vm.userId).then(function(data) {
+        vm.songs = data;
+      });
     }
 
-    function playSong($event, song){
+    function playSong($event, song) {
       $rootScope.$emit('play.song', song);
     }
   }

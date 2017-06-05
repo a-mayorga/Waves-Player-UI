@@ -1,16 +1,16 @@
 <div class="insideContent">
-    <h1>Waves – Canciones</h1>
+  <h1>Waves – Canciones</h1>
 
-    <div class="newInsideContent">
-        <div class="song" ng-repeat="song in songs.songs" ng-click="songs.playSong($event, song)">
-           <img src="media/albums/{{ song.albumID }}.jpg">
-           <p class="songName">{{ song.name }}</p>
-           <p class="songArtist">{{ song.artist }}</p>
-           <p class="songAlbum">{{ song.album }}</p>
-           <p class="songGenre">{{ song.genre }}</p>
-            <p class="songList"><img src="media/add.svg"></p>
-        </div>
+  <div class="newInsideContent">
+    <div class="song" ng-repeat="song in songs.songs" ng-click="songs.playSong($event, song)">
+      <img src="media/albums/{{ song.albumID }}.jpg">
+      <p class="songName">{{ song.name }}</p>
+      <p class="songArtist">{{ song.artist }}</p>
+      <p class="songAlbum">{{ song.album }}</p>
+      <p class="songGenre">{{ song.genre }}</p>
+      <p class="songList" ng-click="songs.addToLibrary($event, song.id)"><img src="media/add.svg"></p>
     </div>
-    <br><br>
-    <!-- <dir-pagination-controls on-page-change="songs.goToTop()"></dir-pagination-controls> -->
+  </div>
+  <br><br>
+  <!-- <dir-pagination-controls on-page-change="songs.goToTop()"></dir-pagination-controls> -->
 </div>

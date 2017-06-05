@@ -1,75 +1,79 @@
 (function() {
 
-    'use strict';
+  'use strict';
 
-    /**
-     * Dependencies:
-     * - toastr: Toast messages
-     * - authSrvc: Logout
-     */
-    angular
-        .module('librarySrvc', [])
-        .factory('libraryService', libraryService);
+  /**
+   * Dependencies:
+   * - toastr: Toast messages
+   * - authSrvc: Logout
+   */
+  angular
+    .module('librarySrvc', [])
+    .factory('libraryService', libraryService);
 
-    libraryService.$inject = ['$http'];
+  libraryService.$inject = ['$http'];
 
-    function libraryService($http) {
-        var libraryService = {
-            getLibrary: getLibrary,
-            saveInLibrary:saveInLibrary,
-        }
-
-        return libraryService;
-
-        function getLibrary(){
-          return $http({
-                  method: 'GET',
-                  url: 'http://localhost:51954/api/library/' + sessionStorage.id,
-              })
-              .then(function(response) {
-                      return response.data
-                  },
-                  function(error) {
-                      console.log(error);
-                  });
-        }
-
-        function saveInLibrary(){
-          return $http({
-                  method: 'GET',
-                  url: '',
-              })
-              .then(function(response) {
-                      return response.data
-                  },
-                  function(error) {
-                      console.log(error);
-                  });
-        }
-
-        function deleteSong(songID) {
-            // return $http({
-            //         method: 'POST',
-            //         url: 'http://localhost:8000/api/users/delete',
-            //         data: {
-            //             id: userId
-            //         },
-            //         headers: {
-            //             'Content-type': 'application/json'
-            //         }
-            //     })
-            //     .then(function(response) {
-            //             // NOTE: Return to the entries and reload them
-            //             toastr.success('Usuario eliminado correctamente');
-            //         },
-            //         function(error) {
-            //             console.log(error.data);
-            //             /* NOTE: Filter errors by code */
-            //             // toastr.error('Hubo un error al crear la entrada');
-            //             // toastr.error('Tu sesión expiró');
-            //             // authService.logout();
-            //         });
-        }
+  function libraryService($http) {
+    var libraryService = {
+      getLibrary: getLibrary,
+      addToLibrary: addToLibrary
     }
+
+    return libraryService;
+
+    function getLibrary(userId) {
+      return $http({
+          method: 'GET',
+          url: 'http://localhost:51954/api/library/' + userId,
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            console.log(error);
+          });
+    }
+
+    function addToLibrary(libraryData) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:51954/api/library',
+          data: JSON.stringify(libraryData),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            console.log(error);
+          });
+    }
+
+    function deleteSong(songID) {
+      // return $http({
+      //         method: 'POST',
+      //         url: 'http://localhost:8000/api/users/delete',
+      //         data: {
+      //             id: userId
+      //         },
+      //         headers: {
+      //             'Content-type': 'application/json'
+      //         }
+      //     })
+      //     .then(function(response) {
+      //             // NOTE: Return to the entries and reload them
+      //             toastr.success('Usuario eliminado correctamente');
+      //         },
+      //         function(error) {
+      //             console.log(error.data);
+      //             /* NOTE: Filter errors by code */
+      //             // toastr.error('Hubo un error al crear la entrada');
+      //             // toastr.error('Tu sesión expiró');
+      //             // authService.logout();
+      //         });
+    }
+  }
 
 })();
