@@ -81,9 +81,10 @@
           }
         })
         .then(function(response) {
-            cacheSession(response.data.id, response.data.name, response.data.email,
-              response.data.username, response.data.status);
-            $state.go('navigation.albums');
+          console.log(response.data);
+            // cacheSession(response.data.id, response.data.name, response.data.email,
+            //   response.data.username, response.data.status);
+            // $state.go('navigation.albums');
           },
           function(error) {
             console.log(error);

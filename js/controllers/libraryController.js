@@ -14,11 +14,10 @@
   function libraryController($rootScope, $anchorScroll, sessionControl, libraryService) {
     var vm = this;
     vm.userId = sessionControl.get('id');
-    // sessionControl.get('id')
     vm.songs = {};
     vm.playSong = playSong;
     vm.goToTop = $anchorScroll;
-    vm.deleteToLibrary = deleteToLibrary;
+    vm.deleteFromLibrary = deleteFromLibrary;
 
     getLibrary();
 
@@ -28,15 +27,16 @@
       });
     }
 
-    function deleteToLibrary($event, songId) {
+    function deleteFromLibrary($event, songId) {
       var libraryData = {
         songID: songId,
-        userID: sessionControl.get('id'),
-        // sessionControl.get('id')
+        userID: vm.userId
       }
 
-      libraryService.deleteToLibrary(libraryData).then(function(data) {
+      libraryService.deleteFromLibrary(libraryData).then(function(data) {
         alert(data);
+        vm.songs = {};
+        getLibrary();
       });
     }
 

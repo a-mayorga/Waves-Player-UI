@@ -15,6 +15,7 @@
   function albumController($rootScope, $stateParams, albumsService, songsService,libraryService) {
     var vm = this;
     vm.albumId = $stateParams.id;
+    vm.userId = sessionControl.get('id');
     vm.albumData = {};
     vm.songs = {};
     vm.playSong = playSong;
@@ -36,8 +37,7 @@
     function addToLibrary($event, songId) {
       var libraryData = {
         songID: songId,
-        userID: sessionStorage.getItem("id"),
-        // sessionControl.get('id')
+        userID: vm.userId,
       }
 
       libraryService.addToLibrary(libraryData).then(function(data) {
