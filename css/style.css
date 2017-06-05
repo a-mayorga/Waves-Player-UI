@@ -547,20 +547,42 @@ img.albumImg:hover, img.albumImg:active {
 }
 
 .song p.songName {
-    width: calc(35% - 10px);
+    width: calc(35% - 17.5px);
 }
 
 .song p.songArtist {
-    width: calc(25% - 10px);
+    width: calc(25% - 17.5px);
 }
 
 .song p.songAlbum {
-    width: calc(25% - 10px);
+    width: calc(25% - 17.5px);
 }
 
 .song p.songGenre {
-    width: calc(15% - 10px);
+    width: calc(15% - 17.5px);
 }
+
+.song p.songList {
+    text-align: center;
+    width: 30px;
+}
+
+
+/* move this */
+.song p.songList img {
+    height: 12px;
+    width: 12px;
+    margin-top: 9px;
+    margin-left: 9px;
+    background: none;
+    border-radius: 0px;
+    filter: contrast(0);
+}
+
+.song p.songList img:hover {
+    filter: contrast(1);
+}
+
 
 .pagination {
   width: 100%;
