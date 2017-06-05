@@ -37,31 +37,6 @@
       scope.seekTrack = seekTrack;
       scope.handlerSeek = handlerSeek;
 
-      // Play / pause function for the button or the space bar
-      function playPause() {
-        scope.playing ? scope.audio.pause() : scope.audio.play();
-      };
-
-      function next() {
-        scope.currentTrack++;
-
-        if(scope.currentTrack >= scope.songs.length){
-          scope.currentTrack = scope.songs.length - 1;
-        }
-
-        playSong();
-      };
-
-      function prev() {
-        scope.currentTrack--;
-
-        if(scope.currentTrack < 0){
-          scope.currentTrack = 0;
-        }
-
-        playSong();
-      };
-
       // Listen for audio-element events
       scope.audio.addEventListener('play', function() {
         scope.playing = true;
@@ -110,6 +85,31 @@
         scope.playing = true;
         scope.info = scope.songs[scope.currentTrack];
         scope.info.state = 'pause';
+      }
+
+      // Play / pause function for the button or the space bar
+      function playPause(){
+        scope.playing ? scope.audio.pause() : scope.audio.play();
+      }
+
+      function next(){
+        scope.currentTrack++;
+
+        if(scope.currentTrack >= scope.songs.length){
+          scope.currentTrack = scope.songs.length - 1;
+        }
+
+        playSong();
+      }
+
+      function prev(){
+        scope.currentTrack--;
+
+        if(scope.currentTrack < 0){
+          scope.currentTrack = 0;
+        }
+
+        playSong();
       }
 
       function seekTrack(e) {
