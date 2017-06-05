@@ -18,12 +18,25 @@
     vm.songs = {};
     vm.playSong = playSong;
     vm.goToTop = $anchorScroll;
+    vm.deleteToLibrary = deleteToLibrary;
 
     getLibrary();
 
     function getLibrary() {
       libraryService.getLibrary(vm.userId).then(function(data) {
         vm.songs = data;
+      });
+    }
+
+    function deleteToLibrary($event, songId) {
+      var libraryData = {
+        songID: songId,
+        userID: sessionStorage.getItem("id"),
+        // sessionControl.get('id')
+      }
+
+      libraryService.deleteToLibrary(libraryData).then(function(data) {
+        alert(data);
       });
     }
 

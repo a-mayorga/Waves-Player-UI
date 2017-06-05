@@ -16,7 +16,8 @@
   function libraryService($http) {
     var libraryService = {
       getLibrary: getLibrary,
-      addToLibrary: addToLibrary
+      addToLibrary: addToLibrary,
+      deleteToLibrary: deleteToLibrary,
     }
 
     return libraryService;
@@ -38,6 +39,23 @@
       return $http({
           method: 'POST',
           url: 'http://localhost:51954/api/library',
+          data: JSON.stringify(libraryData),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            console.log(error);
+          });
+    }
+
+    function deleteToLibrary(libraryData) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:51954/api/Delete',
           data: JSON.stringify(libraryData),
           headers: {
             'Content-type': 'application/json'

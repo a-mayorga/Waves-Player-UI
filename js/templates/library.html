@@ -8,6 +8,7 @@
            <p class="songArtist">{{ song.artist }}</p>
            <p class="songAlbum">{{ song.album }}</p>
            <p class="songGenre">{{ song.genre }}</p>
+           <p class="songList" ng-click="library.deleteToLibrary($event, song.id)"><img src="media/delete.svg"></p>
         </div>
     </div>
 </div>
