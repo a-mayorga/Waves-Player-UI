@@ -7,12 +7,13 @@
       'artistsSrvc',
       'songsSrvc',
       'librarySrvc',
+      'authSrvc'
     ])
     .controller('ArtistCtrl', artistController);
 
-  artistController.$inject = ['$rootScope', '$stateParams', 'artistsService', 'songsService','libraryService'];
+  artistController.$inject = ['$rootScope', '$stateParams', 'artistsService', 'songsService','libraryService', 'sessionControl'];
 
-  function artistController($rootScope, $stateParams, artistsService, songsService,libraryService) {
+  function artistController($rootScope, $stateParams, artistsService, songsService,libraryService, sessionControl) {
     var vm = this;
     vm.artistId = $stateParams.id;
     vm.userId = sessionControl.get('id');

@@ -2,9 +2,9 @@
     <h1>{{ genre.genreData.name }}</h1>
 
     <div class="newInsideContent">
-        <div class="song" ng-repeat="song in genre.songs" ng-click="genre.playSong($event, $index, genre.songs)">
+        <div class="song" ng-repeat="song in genre.songs">
            <img src="media/albums/{{ song.albumID }}.jpg">
-           <p class="songName">{{ song.name }}</p>
+           <p class="songName" ng-click="genre.playSong($event, $index, genre.songs)">{{ song.name }}</p>
            <p class="songArtist">{{ song.artist }}</p>
            <p class="songAlbum">{{ song.album }}</p>
            <p class="songList" ng-click="genre.addToLibrary($event, song.id)"><img src="media/add.svg"></p>

@@ -6,13 +6,14 @@
     .module('genreCtrl', [
       'genresSrvc',
       'songsSrvc',
-      'librarySrvc'
+      'librarySrvc',
+      'authSrvc',
     ])
     .controller('GenreCtrl', genreController);
 
-  genreController.$inject = ['$rootScope', '$anchorScroll', '$stateParams', 'genresService', 'songsService','libraryService'];
+  genreController.$inject = ['$rootScope', '$anchorScroll', '$stateParams', 'genresService', 'songsService','libraryService', 'sessionControl'];
 
-  function genreController($rootScope, $anchorScroll, $stateParams, genresService, songsService,libraryService) {
+  function genreController($rootScope, $anchorScroll, $stateParams, genresService, songsService,libraryService, sessionControl) {
     var vm = this;
     vm.genreId = $stateParams.id;
     vm.userId = sessionControl.get('id');

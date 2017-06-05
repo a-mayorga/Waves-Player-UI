@@ -2,9 +2,9 @@
   <div>
     <h1 id="artistHeader">{{ album.albumData.title }} ({{ album.albumData.year }})</h1>
     <div class="newInsideContent">
-      <div class="song" ng-repeat="song in album.songs" ng-click="album.playSong($event, $index, album.songs)">
+      <div class="song" ng-repeat="song in album.songs">
         <img src="media/albums/{{ song.albumID }}.jpg">
-        <p class="songName">{{ song.name }}</p>
+        <p class="songName" ng-click="album.playSong($event, $index, album.songs)">{{ song.name }}</p>
         <p class="songArtist">{{ song.artist }}</p>
         <p class="songAlbum">{{ song.album }}</p>
         <p class="songGenre">{{ song.genre }}</p>

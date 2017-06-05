@@ -6,13 +6,14 @@
     .module('albumCtrl', [
       'artistsSrvc',
       'songsSrvc',
-      'librarySrvc'
+      'librarySrvc',
+      'authSrvc'
     ])
     .controller('AlbumCtrl', albumController);
 
-  albumController.$inject = ['$rootScope', '$stateParams', 'albumsService', 'songsService','libraryService'];
+  albumController.$inject = ['$rootScope', '$stateParams', 'albumsService', 'songsService','libraryService', 'sessionControl'];
 
-  function albumController($rootScope, $stateParams, albumsService, songsService,libraryService) {
+  function albumController($rootScope, $stateParams, albumsService, songsService,libraryService, sessionControl) {
     var vm = this;
     vm.albumId = $stateParams.id;
     vm.userId = sessionControl.get('id');

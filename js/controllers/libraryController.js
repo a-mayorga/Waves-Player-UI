@@ -14,6 +14,7 @@
   function libraryController($rootScope, $anchorScroll, sessionControl, libraryService) {
     var vm = this;
     vm.userId = sessionControl.get('id');
+    // sessionControl.get('id')
     vm.songs = {};
     vm.playSong = playSong;
     vm.goToTop = $anchorScroll;
@@ -30,7 +31,8 @@
     function deleteFromLibrary($event, songId) {
       var libraryData = {
         songID: songId,
-        userID: vm.userId
+        userID: sessionControl.get('id'),
+        // sessionControl.get('id')
       }
 
       libraryService.deleteFromLibrary(libraryData).then(function(data) {
