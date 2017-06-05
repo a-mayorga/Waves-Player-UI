@@ -5,18 +5,20 @@
   angular
     .module('albumCtrl', [
       'artistsSrvc',
-      'songsSrvc'
+      'songsSrvc',
+      'librarySrvc'
     ])
     .controller('AlbumCtrl', albumController);
 
-  albumController.$inject = ['$rootScope', '$stateParams', 'albumsService', 'songsService'];
+  albumController.$inject = ['$rootScope', '$stateParams', 'albumsService', 'songsService','libraryService'];
 
-  function albumController($rootScope, $stateParams, albumsService, songsService) {
+  function albumController($rootScope, $stateParams, albumsService, songsService,libraryService) {
     var vm = this;
     vm.albumId = $stateParams.id;
     vm.albumData = {};
     vm.songs = {};
     vm.playSong = playSong;
+    vm.addToLibrary = addToLibrary;
 
     getAlbumData();
 
@@ -28,6 +30,18 @@
 
       songsService.getSongsByAlbum(vm.albumId).then(function(data) {
         vm.songs = data;
+      });
+    }
+
+    function addToLibrary($event, songId) {
+      var libraryData = {
+        songID: songId,
+        userID: sessionStorage.getItem("id"),
+        // sessionControl.get('id')
+      }
+
+      libraryService.addToLibrary(libraryData).then(function(data) {
+        alert(data);
       });
     }
 

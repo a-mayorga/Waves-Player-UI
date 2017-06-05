@@ -7,6 +7,7 @@
            <p class="songName">{{ song.name }}</p>
            <p class="songArtist">{{ song.artist }}</p>
            <p class="songAlbum">{{ song.album }}</p>
+           <p class="songList" ng-click="genre.addToLibrary($event, song.id)"><img src="media/add.svg"></p>
         </div>
     </div>
 </div>

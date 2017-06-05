@@ -30,7 +30,7 @@
     function addToLibrary($event, songId) {
       var libraryData = {
         songID: songId,
-        userID: 3
+        userID: sessionStorage.getItem("id"),
         // sessionControl.get('id')
       }
 

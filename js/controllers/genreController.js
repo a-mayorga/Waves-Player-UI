@@ -5,19 +5,21 @@
   angular
     .module('genreCtrl', [
       'genresSrvc',
-      'songsSrvc'
+      'songsSrvc',
+      'librarySrvc'
     ])
     .controller('GenreCtrl', genreController);
 
-  genreController.$inject = ['$rootScope', '$anchorScroll', '$stateParams', 'genresService', 'songsService'];
+  genreController.$inject = ['$rootScope', '$anchorScroll', '$stateParams', 'genresService', 'songsService','libraryService'];
 
-  function genreController($rootScope, $anchorScroll, $stateParams, genresService, songsService) {
+  function genreController($rootScope, $anchorScroll, $stateParams, genresService, songsService,libraryService) {
     var vm = this;
     vm.genreId = $stateParams.id;
     vm.genreData = {};
     vm.songs = {};
     vm.goToTop = $anchorScroll;
     vm.playSong = playSong;
+    vm.addToLibrary = addToLibrary;
 
     getGenreData();
 
@@ -28,6 +30,18 @@
 
       songsService.getSongsByGenre(vm.genreId).then(function(data) {
         vm.songs = data;
+      });
+    }
+
+    function addToLibrary($event, songId) {
+      var libraryData = {
+        songID: songId,
+        userID: sessionStorage.getItem("id"),
+        // sessionControl.get('id')
+      }
+
+      libraryService.addToLibrary(libraryData).then(function(data) {
+        alert(data);
       });
     }
 

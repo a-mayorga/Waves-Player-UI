@@ -18,7 +18,7 @@
     vm.artistData = {};
     vm.songs = {};
     vm.playSong = playSong;
-    vm.saveSongLibrary = saveSongLibrary;
+    vm.addToLibrary = addToLibrary;
 
     getArtistData();
 
@@ -32,11 +32,16 @@
       });
     }
 
-    function saveSongLibrary($event, song){
-      alert('este tiene que guardar');
-      // libraryService.saveInLibrary(song).then(function(data) {
-      //   alert(data);
-      // });
+    function addToLibrary($event, songId) {
+      var libraryData = {
+        songID: songId,
+        userID: sessionStorage.getItem("id"),
+        // sessionControl.get('id')
+      }
+
+      libraryService.addToLibrary(libraryData).then(function(data) {
+        alert(data);
+      });
     }
 
     function playSong($event, $index, songs){
